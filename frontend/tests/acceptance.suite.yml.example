@@ -1,0 +1,8 @@
+suite_namespace: frontend\tests\acceptance
+actor: AcceptanceTester
+modules:
+    enabled:
+        - Phpbrowser:
+            url: http://front.test
+            browser: firefox
+        - Helper/Acceptance
