@@ -40,8 +40,8 @@ class LoginCest
     public function checkEmpty(FunctionalTester $I)
     {
         $I->submitForm('#login-form', $this->formParams('', ''));
-        $I->seeValidationError('Username cannot be blank.');
-        $I->seeValidationError('Password cannot be blank.');
+        $I->seeValidationError('Username não pode estar vazio.');
+        $I->seeValidationError('Password não pode estar vazio.');
     }
 
     public function checkWrongPassword(FunctionalTester $I)

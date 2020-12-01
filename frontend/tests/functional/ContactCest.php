@@ -21,10 +21,10 @@ class ContactCest
     {
         $I->submitForm('#contact-form', []);
         $I->see('Contact', 'h1');
-        $I->seeValidationError('Name cannot be blank');
-        $I->seeValidationError('Email cannot be blank');
-        $I->seeValidationError('Subject cannot be blank');
-        $I->seeValidationError('Body cannot be blank');
+        $I->seeValidationError('Name não pode estar vazio');
+        $I->seeValidationError('Email não pode estar vazio');
+        $I->seeValidationError('Subject não pode estar vazio');
+        $I->seeValidationError('Body não pode estar vazio');
         $I->seeValidationError('The verification code is incorrect');
     }
 
@@ -38,9 +38,9 @@ class ContactCest
             'ContactForm[verifyCode]' => 'testme',
         ]);
         $I->seeValidationError('Email is not a valid email address.');
-        $I->dontSeeValidationError('Name cannot be blank');
-        $I->dontSeeValidationError('Subject cannot be blank');
-        $I->dontSeeValidationError('Body cannot be blank');
+        $I->dontSeeValidationError('Name não pode estar vazio');
+        $I->dontSeeValidationError('Subject não pode estar vazio');
+        $I->dontSeeValidationError('Body não pode estar vazio');
         $I->dontSeeValidationError('The verification code is incorrect');
     }
 

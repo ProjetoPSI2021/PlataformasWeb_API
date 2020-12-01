@@ -9,6 +9,7 @@ use common\models\LoginForm;
 
 /**
  * Site controller
+ *
  */
 class SiteController extends Controller
 {
@@ -60,6 +61,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        $this->layout = 'sitedash';
         return $this->render('index');
     }
 
@@ -70,7 +72,6 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
-        $this->layout = 'loginLayout';
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }

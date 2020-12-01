@@ -2,7 +2,9 @@
 
 /* @var $this yii\web\View */
 
+use backend\assets\DashboardAsset;
 $this->title = 'EatAway';
+DashboardAsset::register($this);
 ?>
 <div class="site-index">
 
