@@ -6,10 +6,10 @@ use yii\helpers\Html;
 /* @var $model backend\models\Prato */
 
 $this->title = 'Create Prato';
-$this->params['breadcrumbs'][] = ['label' => 'Prato', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Pratos', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="pratos-create">
+<div class="prato-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

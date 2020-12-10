@@ -3,10 +3,11 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 
-use backend\assets\AppAsset;
+
+use backend\assets\ListAsset;
 use yii\helpers\Html;
 
-AppAsset::register($this);
+ListAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -20,6 +21,10 @@ AppAsset::register($this);
     <?php $this->head() ?>
 </head>
 <body class="blank">
+
+<!-- /.sidebar -->
+</aside>
+
 <?php $this->beginBody() ?>
 
     <div class="wrap">

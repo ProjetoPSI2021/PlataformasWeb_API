@@ -8,6 +8,8 @@ use backend\models\PratoSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
+
 
 /**
  * PratoController implements the CRUD actions for Prato model.
@@ -62,12 +64,22 @@ class PratoController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
+
     public function actionCreate()
     {
+        $this->layout = 'blank';
         $model = new Prato();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_pratos]);
+        if ($model->load(Yii::$app->request->post())) {
+            $model->save();
+            $idPratos = $model->idPratos;
+            $image = UploadedFile::getInstance($model, 'imagem');
+            $img_name ='food_' . $idPratos . '.' . $image->getExtension();
+            $image->saveAs(Yii::getAlias('@pratosImgPath') . '/' . $img_name);
+            $model->imagem = $img_name;
+            $model->save();
+
+            return $this->redirect(['view', 'id' => $model->idPratos]);
         }
 
         return $this->render('create', [
@@ -84,10 +96,11 @@ class PratoController extends Controller
      */
     public function actionUpdate($id)
     {
+        $this->layout = 'blank';
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_pratos]);
+            return $this->redirect(['view', 'id' => $model->idPratos]);
         }
 
         return $this->render('update', [

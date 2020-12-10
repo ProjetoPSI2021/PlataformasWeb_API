@@ -17,7 +17,7 @@ class PratoSearch extends Prato
     public function rules()
     {
         return [
-            [['id_pratos', 'id_pedidos','r_id'], 'integer'],
+            [['idPratos', 'r_id'], 'integer'],
             [['nome', 'imagem', 'tipo', 'r_ingredientes', 'r_topfood'], 'safe'],
             [['r_preco', 'r_desconto'], 'number'],
         ];
@@ -59,8 +59,8 @@ class PratoSearch extends Prato
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'id_pratos' => $this->id_pratos,
-            'id_pedidos' => $this->id_pedidos,
+            'idPratos' => $this->idPratos,
+            'r_id' => $this->r_id,
             'r_preco' => $this->r_preco,
             'r_desconto' => $this->r_desconto,
         ]);
@@ -68,7 +68,6 @@ class PratoSearch extends Prato
         $query->andFilterWhere(['like', 'nome', $this->nome])
             ->andFilterWhere(['like', 'imagem', $this->imagem])
             ->andFilterWhere(['like', 'tipo', $this->tipo])
-            ->andFilterWhere(['like', 'r_id', $this->r_id])
             ->andFilterWhere(['like', 'r_ingredientes', $this->r_ingredientes])
             ->andFilterWhere(['like', 'r_topfood', $this->r_topfood]);
 

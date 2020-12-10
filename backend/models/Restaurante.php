@@ -13,6 +13,7 @@ use Yii;
  * @property resource $imagem
  * @property int $salas
  * @property int $mesas
+ * @property int $telefone
  *
  * @property Reserva[] $reserva
  */
@@ -34,7 +35,7 @@ class Restaurante extends \yii\db\ActiveRecord
         return [
             [['nome', 'morada', 'salas', 'mesas'], 'required'],
             [['imagem'], 'string'],
-            [['salas', 'mesas'], 'integer'],
+            [['salas', 'mesas', 'telefone'], 'integer'],
             [['nome'], 'string', 'max' => 100],
             [['morada'], 'string', 'max' => 50],
         ];
@@ -52,6 +53,7 @@ class Restaurante extends \yii\db\ActiveRecord
             'imagem' => 'Imagem',
             'salas' => 'Salas',
             'mesas' => 'Mesas',
+            'telefone' => 'Telefone',
         ];
     }
 

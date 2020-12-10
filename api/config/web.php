@@ -51,7 +51,14 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                [ 'class' => 'yii\rest\UrlRule', 'controller' => 'cliente'],
+                [ 'class' => 'yii\rest\UrlRule',
+                    'controller' => 'cliente',
+                    'extraPatterns' => [
+                        'GET total' => 'total',
+                        'GET {id}/morada' => 'morada',
+                        'GET {id}/username' => 'username',
+                    ]
+                ],
                 [ 'class' => 'yii\rest\UrlRule', 'controller' => 'pedido'],
                 [ 'class' => 'yii\rest\UrlRule', 'controller' => 'prato'],
                 [ 'class' => 'yii\rest\UrlRule', 'controller' => 'restaurante'],

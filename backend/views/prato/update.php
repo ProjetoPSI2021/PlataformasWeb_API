@@ -5,16 +5,16 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Prato */
 
-$this->title = 'Update Prato: ' . $model->id_pratos;
-$this->params['breadcrumbs'][] = ['label' => 'Prato', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->id_pratos, 'url' => ['view', 'id' => $model->id_pratos]];
+$this->title = 'Update Prato: ' . $model->idPratos;
+$this->params['breadcrumbs'][] = ['label' => 'Pratos', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => $model->idPratos, 'url' => ['view', 'id' => $model->idPratos]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
-<div class="pratos-update">
+<div class="prato-update">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <?= $this->render('_form', [
+    <?= $this->render('_form_update', [
         'model' => $model,
     ]) ?>
 

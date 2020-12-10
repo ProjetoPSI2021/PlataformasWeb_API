@@ -8,6 +8,7 @@ use backend\models\RestauranteSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * RestauranteController implements the CRUD actions for Restaurante model.
@@ -38,10 +39,13 @@ class RestauranteController extends Controller
     {
         $searchModel = new RestauranteSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
+        $restaurantes = Restaurante::find()->all();
 
 
         return $this->render('index', [
+
+            'restaurantes'=>$restaurantes,
+
 
             'searchModel' => $searchModel,
 
@@ -73,7 +77,18 @@ class RestauranteController extends Controller
     {
         $model = new Restaurante();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+            $model->save();
+            $idRestaurante=$model->idRestaurante;
+            $image=UploadedFile::getInstance($model,'imagem');
+            $img_name ='rest_' . $idRestaurante . '.' . $image->getExtension();
+            $image->saveAs( Yii::getAlias('@restauranteImgPath') . '/' .$img_name);
+            $model->imagem=$img_name;
+            $model->save();
+
+
+
+
             return $this->redirect(['view', 'id' => $model->idRestaurante]);
         }
 

@@ -16,7 +16,6 @@ use kartik\select2\Select2;
 
     <?= $form->field($model, 'nome')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'imagem')->fileInput() ?>
 
     <?= $form->field($model, 'tipo')->dropDownList([ 'Fast Food' => 'Fast Food', 'Japones' => 'Japones', ], ['prompt' => '']) ?>
 

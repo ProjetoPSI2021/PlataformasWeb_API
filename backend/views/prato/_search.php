@@ -8,16 +8,14 @@ use yii\widgets\ActiveForm;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="pratos-search">
+<div class="prato-search">
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id_pratos') ?>
-
-    <?= $form->field($model, 'id_pedidos') ?>
+    <?= $form->field($model, 'idPratos') ?>
 
     <?= $form->field($model, 'nome') ?>
 
@@ -25,7 +23,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'tipo') ?>
 
-    <?php // echo $form->field($model, 'r_id') ?>
+    <?= $form->field($model, 'r_id') ?>
 
     <?php // echo $form->field($model, 'r_preco') ?>
 
@@ -34,7 +32,6 @@ use yii\widgets\ActiveForm;
     <?php // echo $form->field($model, 'r_ingredientes') ?>
 
     <?php // echo $form->field($model, 'r_topfood') ?>
-
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

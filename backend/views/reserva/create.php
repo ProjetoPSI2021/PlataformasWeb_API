@@ -18,3 +18,8 @@ $this->params['breadcrumbs'][] = $this->title;
     ]) ?>
 
 </div>
+
+
+<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->

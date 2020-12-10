@@ -64,6 +64,7 @@ class ReservaController extends Controller
      */
     public function actionCreate()
     {
+        $this->layout = 'blank';
         $model = new Reserva();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
