@@ -2,7 +2,9 @@
 
 namespace app\controllers;
 
+use yii\filters\auth\HttpBasicAuth;
 use yii\rest\ActiveController;
+use yii\web\Response;
 
 class ClienteController extends ActiveController{
 
@@ -29,4 +31,19 @@ class ClienteController extends ActiveController{
             return ['idCliente' => $id, 'username' => $rec -> username];
         return ['idCliente' => $id, 'username' => "null"];
     }
+
+    public function behaviors()
+    {
+        $behaviors = parent::behaviors();
+        $behaviors['contentNegotiator'] = [
+            'class' => 'yii\filters\ContentNegotiator',
+            'formats' => [
+                'application/json' => Response::FORMAT_JSON,
+            ]
+        ];
+        return $behaviors;
+    }
+
+
+
 }

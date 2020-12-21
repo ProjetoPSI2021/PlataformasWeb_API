@@ -18,8 +18,8 @@ class PratoSearch extends Prato
     {
         return [
             [['idPratos', 'r_id'], 'integer'],
-            [['nome', 'imagem', 'tipo', 'r_ingredientes', 'r_topfood'], 'safe'],
-            [['r_preco', 'r_desconto'], 'number'],
+            [['nome', 'imagem', 'tipo', 'r_ingredientes'], 'safe'],
+            [['r_preco'], 'number'],
         ];
     }
 
@@ -62,15 +62,12 @@ class PratoSearch extends Prato
             'idPratos' => $this->idPratos,
             'r_id' => $this->r_id,
             'r_preco' => $this->r_preco,
-            'r_desconto' => $this->r_desconto,
         ]);
 
         $query->andFilterWhere(['like', 'nome', $this->nome])
             ->andFilterWhere(['like', 'imagem', $this->imagem])
             ->andFilterWhere(['like', 'tipo', $this->tipo])
-            ->andFilterWhere(['like', 'r_ingredientes', $this->r_ingredientes])
-            ->andFilterWhere(['like', 'r_topfood', $this->r_topfood]);
-
+            ->andFilterWhere(['like', 'r_ingredientes', $this->r_ingredientes]);
         return $dataProvider;
     }
 }
