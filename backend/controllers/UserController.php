@@ -7,6 +7,7 @@ use backend\models\User;
 use backend\models\UserSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use yii\web\ForbiddenHttpException;
 use yii\filters\VerbFilter;
 
 /**
@@ -35,6 +36,7 @@ class UserController extends Controller
      */
     public function actionIndex()
     {
+        if (Yii::$app->user->can('list-users')) {
         $searchModel = new UserSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -42,7 +44,9 @@ class UserController extends Controller
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
-    }
+    }else
+        {
+            throw new ForbiddenHttpException;}}
 
     /**
      * Displays a single User model.
@@ -52,10 +56,13 @@ class UserController extends Controller
      */
     public function actionView($id)
     {
+        if (Yii::$app->user->can('list-users')) {
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
-    }
+    }else
+        {
+            throw new ForbiddenHttpException;}}
 
     /**
      * Creates a new User model.
@@ -64,6 +71,7 @@ class UserController extends Controller
      */
     public function actionCreate()
     {
+        if (Yii::$app->user->can('create-users')) {
         $model = new User();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -73,7 +81,17 @@ class UserController extends Controller
         return $this->render('create', [
             'model' => $model,
         ]);
+    }else
+        {
+            throw new ForbiddenHttpException;}}
+
+    public function actionLogout()
+    {
+        Yii::$app->user->logout();
+
+        return $this->goHome();
     }
+
 
     /**
      * Updates an existing User model.
@@ -84,6 +102,7 @@ class UserController extends Controller
      */
     public function actionUpdate($id)
     {
+        if (Yii::$app->user->can('update-users')) {
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -93,7 +112,9 @@ class UserController extends Controller
         return $this->render('update', [
             'model' => $model,
         ]);
-    }
+    }else
+        {
+            throw new ForbiddenHttpException;}}
 
     /**
      * Deletes an existing User model.
@@ -104,10 +125,13 @@ class UserController extends Controller
      */
     public function actionDelete($id)
     {
+        if (Yii::$app->user->can('delete-users')) {
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
-    }
+    }else
+        {
+            throw new ForbiddenHttpException;}}
 
     /**
      * Finds the User model based on its primary key value.

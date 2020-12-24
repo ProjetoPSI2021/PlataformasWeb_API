@@ -5,6 +5,7 @@
 
 use backend\assets\ListAsset;
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 ListAsset::register($this);
 ?>
@@ -142,6 +143,15 @@ ListAsset::register($this);
                     <i class="fas fa-th-large"></i>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<?= Url::to(['site/logout'])?>" data-method="post">
+                    <i class="fas fa-sign-out-alt"></i>
+                </a>
+            </li>
+
+
+
+
         </ul>
     </nav>
     <!-- /.navbar -->
@@ -158,11 +168,8 @@ ListAsset::register($this);
         <div class="sidebar">
             <!-- Sidebar user (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                <div class="image">
-                    <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-                </div>
                 <div class="info">
-                    <a href="#" class="d-block">Alexander Pierce</a>
+                    <a><?php echo Yii::$app->user->identity->username?></a>
                 </div>
             </div>
 
@@ -181,31 +188,31 @@ ListAsset::register($this);
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="../../backend/web/index.php?r=clientes" class="nav-link">
+                                <a href="../../backend/web/index.php?r=cliente" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Clientes</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="../../backend/web/index.php?r=pedidos" class="nav-link">
+                                <a href="../../backend/web/index.php?r=pedido" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Pedidos</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="../../backend/web/index.php?r=pratos" class="nav-link">
+                                <a href="../../backend/web/index.php?r=prato" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Ementa</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="../../backend/web/index.php?r=reservas" class="nav-link">
+                                <a href="../../backend/web/index.php?r=reserva" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Reservas</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="../../backend/web/index.php?r=restaurantes" class="nav-link">
+                                <a href="../../backend/web/index.php?r=restaurante" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Restaurantes</p>
                                 </a>
@@ -219,10 +226,10 @@ ListAsset::register($this);
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a href="../widgets.html" class="nav-link">
+                        <a href="../../backend/web/index.php?r=restaurante%2Fviewrestaurante&id=1" class="nav-link">
                             <i class="nav-icon fas fa-th"></i>
                             <p>
-                                Widgets
+                                Meu Restaurante
                                 <span class="right badge badge-danger">New</span>
                             </p>
                         </a>
@@ -588,13 +595,7 @@ ListAsset::register($this);
     </div>
     <!-- /.content-wrapper -->
 
-    <footer class="main-footer">
-        <div class="float-right d-none d-sm-block">
-            <b>Version</b> 3.0.5
-        </div>
-        <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
-        reserved.
-    </footer>
+
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">

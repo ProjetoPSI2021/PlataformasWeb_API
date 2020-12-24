@@ -6,6 +6,7 @@ use Yii;
 use backend\models\Restaurante;
 use backend\models\RestauranteSearch;
 use yii\web\Controller;
+use yii\web\ForbiddenHttpException;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
@@ -35,8 +36,11 @@ class RestauranteController extends Controller
      * Lists all Restaurante models.
      * @return mixed
      */
+
+
     public function actionIndex()
     {
+        if (Yii::$app->user->can('list-restaurants')) {
         $searchModel = new RestauranteSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         $restaurantes = Restaurante::find()->all();
@@ -52,8 +56,9 @@ class RestauranteController extends Controller
             'dataProvider' => $dataProvider,
 
         ]);
-    }
-
+    }else
+        {
+            throw new ForbiddenHttpException;}}
 
     /**
      * Displays a single Restaurante model.
@@ -63,7 +68,18 @@ class RestauranteController extends Controller
      */
     public function actionView($id)
     {
-        return $this->render('view', [
+        if (Yii::$app->user->can('list-restaurants')) {
+            return $this->render('view', [
+                'model' => $this->findModel($id),
+            ]);
+        }else
+        {
+            throw new ForbiddenHttpException;}}
+
+
+    public function actionViewrestaurante($id)
+    {
+        return $this->render('view_restaurante', [
             'model' => $this->findModel($id),
         ]);
     }
@@ -75,26 +91,32 @@ class RestauranteController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Restaurante();
+        if(Yii::$app->user->can('create-restaurants')){
+            $model = new Restaurante();
 
-        if ($model->load(Yii::$app->request->post())) {
-            $model->save();
-            $idRestaurante=$model->idRestaurante;
-            $image=UploadedFile::getInstance($model,'imagem');
-            $img_name ='rest_' . $idRestaurante . '.' . $image->getExtension();
-            $image->saveAs( Yii::getAlias('@restauranteImgPath') . '/' .$img_name);
-            $model->imagem=$img_name;
-            $model->save();
+            if ($model->load(Yii::$app->request->post())) {
+                $model->save();
+                $idRestaurante=$model->idRestaurante;
+                $image=UploadedFile::getInstance($model,'imagem');
+                $img_name ='rest_' . $idRestaurante . '.' . $image->getExtension();
+                $image->saveAs( Yii::getAlias('@restauranteImgPath') . '/' .$img_name);
+                $model->imagem=$img_name;
+                $model->save();
 
 
 
 
-            return $this->redirect(['view', 'id' => $model->idRestaurante]);
+                return $this->redirect(['view', 'id' => $model->idRestaurante]);
+            }
+
+            return $this->render('create', [
+                'model' => $model,
+            ]);
+        }else
+        {
+            throw new ForbiddenHttpException;
         }
 
-        return $this->render('create', [
-            'model' => $model,
-        ]);
     }
 
     /**
@@ -106,6 +128,7 @@ class RestauranteController extends Controller
      */
     public function actionUpdate($id)
     {
+        if (Yii::$app->user->can('update-restaurants')) {
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -115,6 +138,10 @@ class RestauranteController extends Controller
         return $this->render('update', [
             'model' => $model,
         ]);
+    }else
+        {
+            throw new ForbiddenHttpException;
+        }
     }
 
     /**
@@ -126,10 +153,15 @@ class RestauranteController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        if (Yii::$app->user->can('update-restaurants')) {
+
+            $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
-    }
+    }else
+        {
+            throw new ForbiddenHttpException;
+        }}
 
     /**
      * Finds the Restaurante model based on its primary key value.

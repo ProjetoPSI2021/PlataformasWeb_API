@@ -66,4 +66,18 @@ class Restaurante extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Reserva::className(), ['id_restaurante' => 'idRestaurante']);
     }
+
+    public static function PedidosCount()
+
+    {
+
+        $connection = Yii::$app->getDb();
+
+        $command = $connection->createCommand("SELECT idrestaurantepedido, count(distinct idpedido) as qtd_pedidos FROM pedido GROUP BY idrestaurantepedido");
+
+        $result = $command->queryAll();
+
+        return $result;
+
+    }
 }

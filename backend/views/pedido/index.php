@@ -20,23 +20,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'idpedido',
-            'id_reserva',
-            'data',
-            'tipo',
-            'id_clientes',
-            'estadopedido',
-            //'preco',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
 
 
 </div>
@@ -46,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <i class="fas fa-backward"></i> Voltar
 </a>
 <p></p>
-<?php $allPedidos = \backend\models\Pedido::find()->orderBy('data')->all();
+<?php $allPedidos = \backend\models\Pedido::find()->orderBy(['data' => SORT_DESC ])->all();
 foreach($allPedidos as $pedido) {
 
 ?>
@@ -55,17 +38,17 @@ foreach($allPedidos as $pedido) {
         <div class="row d-flex align-items-stretch">
             <!-- Default box -->
             <div>
-                <?php  echo "$pedido->idpedido"; ?>
+               <h2>ID: <?php  echo "$pedido->idpedido"; ?></h2>
             </div>
             <div class="card-body pt-0">
                 <div class="row">
                     <div class="col-7">
-                        <h2 class="lead"><b>   <?php  echo "$pedido->id_reserva"; ?> </b></h2>
+                        <h2 class="lead"><b> <?php if($pedido->id_reserva != null){  echo "ID Reserva: $pedido->id_reserva";} ?> </b></h2>
                         <p class="text-muted text-sm"><b>   <?php  echo "$pedido->data"; ?>  </b>    <?php  echo "$pedido->tipo"; ?>  </p>
                         <ul class="ml-4 mb-0 fa-ul text-muted">
-                            <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span>Morada:<?php echo"$pedido->tipo"; ?> </li>
-                            <li class="small"><span class="fa-li"><i class="fas fa-person-booth"></i></span>Salas:<?php  echo "$pedido->tipo"; ?> / Mesas:<?php  echo "$pedido->preco"; ?>  </li>
-                            <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span>    <?php  echo "$pedido->estadopedido"; ?> </li>
+                            <li class="small"><span class="fa-li"><i class="fas fa-user"></i></span>ID Cliente:<?php echo"$pedido->id_clientes"; ?> </li>
+                            <li class="small"><span class="fa-li"><i class="fas fa-tag"></i></span>Preço Total:<?php  echo "$pedido->preco"; ?>  </li>
+                            <li class="small"><span class="fa-li"><i class="fas fa-chalkboard"></i></span>Estado:    <?php  echo "$pedido->estadopedido"; ?> </li>
 
                         </ul>
                     </div>

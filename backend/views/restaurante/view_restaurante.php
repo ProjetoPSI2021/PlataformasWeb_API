@@ -1,31 +1,41 @@
 <?php
 
 use yii\helpers\Html;
-use yii\grid\GridView;
 
 
 /* @var $this yii\web\View */
-/* @var $searchModel backend\models\PratoSearch */
-/* @var $dataProvider yii\data\ActiveDataProvider */
+/* @var $model backend\models\Restaurante */
 
-$this->title = 'Pratos';
+$this->title = $model->idRestaurante;
+$this->params['breadcrumbs'][] = ['label' => 'Restaurante', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
+\yii\web\YiiAsset::register($this);
 ?>
-<div class="prato-index">
+<div class="restaurantes-view">
+
+ <p></p>
+
+    <p>
+        <?= Html::a('Update', ['update', 'id' => $model->idRestaurante], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Delete', ['delete', 'id' => $model->idRestaurante], [
+            'class' => 'btn btn-danger',
+            'data' => [
+                'confirm' => 'Are you sure you want to delete this item?',
+                'method' => 'post',
+            ],
+        ]) ?>
+        <?= Html::a('Create Prato', ['create'], ['class' => 'btn btn-success']) ?>
+
+    </p>
 
 
 </div>
-
 <!-- Default box -->
 <div class="card card-solid">
     <div class="card-body pb-0">
-        <h1><?= Html::encode($this->title) ?></h1>
-
-        <p align="right">
-            <?= Html::a('Create Prato', ['create'], ['class' => 'btn btn-success']) ?>
-        </p>
         <div class="row d-flex align-items-stretch">
-            <?php $allPratos = \backend\models\Prato::find()->orderBy('idPratos')->all();
+            <?php if(Yii::$app->user->identity->restauranteid!=null) {
+             $allPratos = \backend\models\Prato::find()->orderBy('idPratos')->where(['r_id' => Yii::$app->user->identity->restauranteid])->all();
             foreach($allPratos as $prato) {
 
                 ?>
@@ -57,7 +67,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <i class="fas fa-comments"></i>
                                 </a>
                                 <a href="index.php?r=prato%2Fview&id=<?php  echo "$prato->idPratos"; ?>" class="btn btn-sm btn-primary">
-                                    <i class="fas fa-search"></i> Ver Prato
+                                    <i class="fas fa-search"></i> Ver Comida
                                 </a>
                             </div>
                         </div>
@@ -67,9 +77,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
 
-            <?php }?>
-
-
+            <?php }} else { ?> <p>teste <?php }?>
 
 
 

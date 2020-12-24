@@ -36,7 +36,7 @@ class SiteController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'logout' => ['post'],
+                    'logout' => ['post','get'],
                 ],
             ],
         ];
@@ -61,8 +61,8 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $this->layout = 'sitedash';
-        return $this->render('index');
+        $this->layout = 'main';
+        return $this->render('sitedash');
     }
 
     /**
@@ -97,8 +97,13 @@ class SiteController extends Controller
      */
     public function actionLogout()
     {
-        Yii::$app->user->logout();
 
-        return $this->goHome();
+        Yii::$app->user->logout();
+        $this->layout = 'blank';
+        $model = new LoginForm();
+
+        return $this->render('login', [
+            'model' => $model,
+        ]);
     }
 }

@@ -8,9 +8,11 @@ use Yii;
  * This is the model class for table "pedido".
  *
  * @property int $idpedido
+ * @property int $idrestaurantepedido
  * @property int $id_reserva
  * @property string $data
  * @property string $tipo
+ * @property string $estadopedido
  * @property int $id_clientes
  * @property float $preco
  *
@@ -34,8 +36,8 @@ class Pedido extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['data', 'tipo', 'id_clientes', 'preco'], 'required'],
-            [['id_reserva', 'id_clientes'], 'integer'],
+            [['data', 'tipo', 'id_clientes', 'preco','idrestaurantepedido'], 'required'],
+            [['id_reserva', 'id_clientes','idrestaurantepedido'], 'integer'],
             [['data'], 'safe'],
             [['tipo'], 'string'],
             [['preco'], 'number'],
@@ -51,6 +53,7 @@ class Pedido extends \yii\db\ActiveRecord
     {
         return [
             'idpedido' => 'Idpedido',
+            'idrestaurantepedido' => 'ID Restaurante',
             'id_reserva' => 'Id Reserva',
             'data' => 'Data',
             'tipo' => 'Tipo',

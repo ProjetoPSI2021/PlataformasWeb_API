@@ -21,10 +21,11 @@ DashboardAsset::register($this);
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head><?php $this->beginBody() ?>
+
 <body class="hold-transition sidebar-mini layout-fixed">
 
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
+
         <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
@@ -183,7 +184,7 @@ DashboardAsset::register($this);
                                     <!-- Message. Default to the left -->
                                     <div class="direct-chat-msg">
                                         <div class="direct-chat-infos clearfix">
-                                            <span class="direct-chat-name float-left">Alexander Pierce</span>
+                                            <span class="direct-chat-name float-left">ASASFSAFSAFAFSAFS</span>
                                             <span class="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
                                         </div>
                                         <!-- /.direct-chat-infos -->

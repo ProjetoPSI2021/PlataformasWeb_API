@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 
+
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\UserSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -12,35 +13,53 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
-        <?= Html::a('Create User', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+                    <div class="card-tools">
+                        <div class="input-group input-group-sm" style="width: 150px;">
+                        </div>
+                    </div>  <h1><?= Html::encode($this->title) ?></h1>
 
-            'id',
-            'username',
-            //'auth_key',
-            //'password_hash',
-            //'password_reset_token',
-            'email:email',
-            'status',
-            //'created_at',
-            //'updated_at',
-            //'verification_token',
-            'restauranteid',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
-
-
+                    <p>
+                        <?= Html::a('Create User', ['create'], ['class' => 'btn btn-success']) ?>
+                    </p>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body table-responsive p-0">
+                    <table class="table table-hover text-nowrap">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>User</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php $allusers = \backend\models\User::find()->orderBy('id')->all();
+foreach($allusers as $user) {
+?>
+                        <tr>
+                            <td> <?php  echo "$user->id"; ?></td>
+                            <td><?php  echo "$user->username"; ?></td>
+                            <td><?php  echo "$user->email"; ?></td>
+                            <td><?php if($user->status=="10"){?><i class="far fa-check-circle"></i><span class="tag tag-success"> Autorizado</span></td>
+<?php }else{?><i class="fas fa-times"></i><span class="tag tag-success"> Não Autorizado</span></td><?php?>
+                        </tr>
+<?php }} ?>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+    </div>
 </div>
+

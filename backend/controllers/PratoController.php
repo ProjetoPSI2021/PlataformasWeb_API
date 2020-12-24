@@ -7,6 +7,7 @@ use backend\models\Prato;
 use backend\models\PratoSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use yii\web\ForbiddenHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
 
@@ -37,6 +38,7 @@ class PratoController extends Controller
      */
     public function actionIndex()
     {
+        if (Yii::$app->user->can('list-food')) {
         $searchModel = new PratoSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -44,7 +46,9 @@ class PratoController extends Controller
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
-    }
+    }else
+        {
+            throw new ForbiddenHttpException;}}
 
     /**
      * Displays a single Prato model.
@@ -54,10 +58,13 @@ class PratoController extends Controller
      */
     public function actionView($id)
     {
+        if (Yii::$app->user->can('list-food')) {
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
-    }
+    }else
+        {
+            throw new ForbiddenHttpException;}}
 
     /**
      * Creates a new Prato model.
@@ -67,6 +74,7 @@ class PratoController extends Controller
 
     public function actionCreate()
     {
+        if (Yii::$app->user->can('create-food')) {
         $this->layout = 'blank';
         $model = new Prato();
 
@@ -85,7 +93,9 @@ class PratoController extends Controller
         return $this->render('create', [
             'model' => $model,
         ]);
-    }
+    }else
+        {
+            throw new ForbiddenHttpException;}}
 
     /**
      * Updates an existing Prato model.
@@ -96,6 +106,7 @@ class PratoController extends Controller
      */
     public function actionUpdate($id)
     {
+        if (Yii::$app->user->can('update-food')) {
         $this->layout = 'blank';
         $model = $this->findModel($id);
 
@@ -106,7 +117,9 @@ class PratoController extends Controller
         return $this->render('update', [
             'model' => $model,
         ]);
-    }
+    }else
+        {
+            throw new ForbiddenHttpException;}}
 
     /**
      * Deletes an existing Prato model.
@@ -117,10 +130,13 @@ class PratoController extends Controller
      */
     public function actionDelete($id)
     {
+        if (Yii::$app->user->can('delete-food')) {
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
-    }
+    }else
+        {
+            throw new ForbiddenHttpException;}}
 
     /**
      * Finds the Prato model based on its primary key value.

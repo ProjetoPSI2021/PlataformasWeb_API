@@ -7,6 +7,7 @@ use backend\models\Cliente;
 use backend\models\clienteSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use yii\web\ForbiddenHttpException;
 use yii\filters\VerbFilter;
 
 /**
@@ -35,6 +36,7 @@ class ClienteController extends Controller
      */
     public function actionIndex()
     {
+        if (Yii::$app->user->can('list-clients')) {
         $searchModel = new clienteSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -42,7 +44,9 @@ class ClienteController extends Controller
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
-    }
+    }else
+        {
+            throw new ForbiddenHttpException;}}
 
     /**
      * Displays a single cliente model.
@@ -52,10 +56,14 @@ class ClienteController extends Controller
      */
     public function actionView($id)
     {
+        if (Yii::$app->user->can('list-clients')) {
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
-    }
+    }else
+        {
+            throw new ForbiddenHttpException;
+        }}
 
     /**
      * Creates a new cliente model.
@@ -64,6 +72,7 @@ class ClienteController extends Controller
      */
     public function actionCreate()
     {
+        if (Yii::$app->user->can('create-clients')) {
         $model = new Cliente();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -73,7 +82,10 @@ class ClienteController extends Controller
         return $this->render('create', [
             'model' => $model,
         ]);
-    }
+    }else
+        {
+            throw new ForbiddenHttpException;
+        }}
 
     /**
      * Updates an existing cliente model.
@@ -84,6 +96,7 @@ class ClienteController extends Controller
      */
     public function actionUpdate($id)
     {
+        if (Yii::$app->user->can('update-clients')) {
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -93,7 +106,10 @@ class ClienteController extends Controller
         return $this->render('update', [
             'model' => $model,
         ]);
-    }
+    }else
+        {
+            throw new ForbiddenHttpException;
+        }}
 
     /**
      * Deletes an existing cliente model.
@@ -104,10 +120,14 @@ class ClienteController extends Controller
      */
     public function actionDelete($id)
     {
+        if (Yii::$app->user->can('update-clients')) {
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
-    }
+    }else
+        {
+            throw new ForbiddenHttpException;
+        }}
 
     /**
      * Finds the cliente model based on its primary key value.

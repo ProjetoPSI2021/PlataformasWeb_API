@@ -32,11 +32,7 @@ use kartik\select2\Select2;
 
     <?= $form->field($model, 'r_preco')->textInput() ?>
 
-    <?= $form->field($model, 'r_desconto')->textInput() ?>
-
     <?= $form->field($model, 'r_ingredientes')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'r_topfood')->textInput(['maxlength' => true]) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

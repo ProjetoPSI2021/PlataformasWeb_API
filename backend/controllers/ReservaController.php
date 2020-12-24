@@ -7,6 +7,7 @@ use backend\models\Reserva;
 use backend\models\ReservaSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use yii\web\ForbiddenHttpException;
 use yii\filters\VerbFilter;
 
 /**
@@ -35,6 +36,7 @@ class ReservaController extends Controller
      */
     public function actionIndex()
     {
+        if (Yii::$app->user->can('list-reservation')) {
         $searchModel = new ReservaSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -42,7 +44,9 @@ class ReservaController extends Controller
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
-    }
+    }else
+        {
+            throw new ForbiddenHttpException;}}
 
     /**
      * Displays a single Reserva model.
@@ -52,10 +56,13 @@ class ReservaController extends Controller
      */
     public function actionView($id)
     {
+        if (Yii::$app->user->can('list-reservation')) {
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
-    }
+    }else
+        {
+            throw new ForbiddenHttpException;}}
 
     /**
      * Creates a new Reserva model.
@@ -64,6 +71,7 @@ class ReservaController extends Controller
      */
     public function actionCreate()
     {
+        if (Yii::$app->user->can('create-reservation')) {
         $this->layout = 'blank';
         $model = new Reserva();
 
@@ -74,8 +82,9 @@ class ReservaController extends Controller
         return $this->render('create', [
             'model' => $model,
         ]);
-    }
-
+    }else
+        {
+            throw new ForbiddenHttpException;}}
     /**
      * Updates an existing Reserva model.
      * If update is successful, the browser will be redirected to the 'view' page.
@@ -85,6 +94,7 @@ class ReservaController extends Controller
      */
     public function actionUpdate($id)
     {
+        if (Yii::$app->user->can('update-reservation')) {
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -94,7 +104,9 @@ class ReservaController extends Controller
         return $this->render('update', [
             'model' => $model,
         ]);
-    }
+    }else
+        {
+            throw new ForbiddenHttpException;}}
 
     /**
      * Deletes an existing Reserva model.
@@ -105,10 +117,13 @@ class ReservaController extends Controller
      */
     public function actionDelete($id)
     {
+        if (Yii::$app->user->can('delete-reservation')) {
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
-    }
+    }else
+        {
+            throw new ForbiddenHttpException;}}
 
     /**
      * Finds the Reserva model based on its primary key value.

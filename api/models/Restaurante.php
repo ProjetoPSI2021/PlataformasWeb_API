@@ -52,4 +52,6 @@ class Restaurante extends \yii\db\ActiveRecord
             'mesas' => 'Mesas',
         ];
     }
+
+
 }

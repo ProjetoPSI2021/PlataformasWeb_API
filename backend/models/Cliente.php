@@ -33,8 +33,8 @@ class Cliente extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['username', 'primeiroNome', 'ultimoNome', 'morada', 'password'], 'required'],
-            [['username', 'primeiroNome', 'ultimoNome', 'morada', 'password'], 'string', 'max' => 50],
+            [['username', 'email', 'password'], 'required'],
+            [['username', 'email', 'password'], 'string', 'max' => 50],
         ];
     }
 
@@ -46,9 +46,7 @@ class Cliente extends \yii\db\ActiveRecord
         return [
             'idCliente' => 'Id Cliente',
             'username' => 'Username',
-            'primeiroNome' => 'Primeiro Nome',
-            'ultimoNome' => 'Ultimo Nome',
-            'morada' => 'Morada',
+            'email' => 'Email',
             'password' => 'Password',
         ];
     }

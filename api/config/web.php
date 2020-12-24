@@ -54,9 +54,13 @@ $config = [
                 [ 'class' => 'yii\rest\UrlRule',
                     'controller' => 'cliente',
                     'extraPatterns' => [
-                        'GET total' => 'total',
-                        'GET {id}/morada' => 'morada',
-                        'GET {id}/username' => 'username',
+                        'GET total' => 'total',//Total de clientes
+                        'GET {id}/morada' => 'morada',//Morada de um certo cliente
+                        'GET {id}/username' => 'username',//Username de um certo cliente
+                        'GET datacr' => 'datacr',//Visualização da data em ordem crescente
+                        'GET datadecr' => 'datadecr',//Visualização da data em ordem descrescente
+                        'GET usernamecr' => 'usernamecr', //Visualização do username em ordem descrescente
+                        'GET usernamedecr' => 'usernamedecr', //Visualização do username em ordem descrescente
                     ]
                 ],
                 [ 'class' => 'yii\rest\UrlRule', 'controller' => 'pedido'],

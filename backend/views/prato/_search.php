@@ -27,11 +27,7 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'r_preco') ?>
 
-    <?php // echo $form->field($model, 'r_desconto') ?>
-
     <?php // echo $form->field($model, 'r_ingredientes') ?>
-
-    <?php // echo $form->field($model, 'r_topfood') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

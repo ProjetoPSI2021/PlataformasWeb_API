@@ -16,6 +16,16 @@ use kartik\select2\Select2;
 
     <?= $form->field($model, 'id_reserva')->textInput() ?>
 
+    <?= $form->field($model, 'idrestaurantepedido')->widget(Select2::classname(), [
+        'data' => \yii\helpers\ArrayHelper::map(\backend\models\Restaurante::find()->all(),'idRestaurante','nome'),
+        'language' => 'de',
+        'options' => ['placeholder' => 'Select a Restaurant ...'],
+        'pluginOptions' => [
+            'allowClear' => true
+        ],
+    ]);
+    ?>
+
     <?= $form->field($model, 'data')->widget(
         DatePicker::className(), [
         // inline too, not bad
