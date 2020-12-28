@@ -68,6 +68,12 @@ class PedidoController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
+    public function actionViewpedido()
+    {
+        return $this->render('view_pedido', [
+        ]);
+    }
+
     public function actionCreate()
     {
         if (Yii::$app->user->can('create-order')) {
@@ -84,6 +90,20 @@ class PedidoController extends Controller
         {
             throw new ForbiddenHttpException;}}
 
+    public function actionCreaterest()
+    {
+
+            $model = new Pedido();
+
+            if ($model->load(Yii::$app->request->post()) && $model->save()) {
+                return $this->render('view_pedido', ['id' => $model->idpedido]);
+            }
+
+            return $this->render('create_pedido', [
+                'model' => $model,
+            ]);
+        }
+
     /**
      * Updates an existing Pedido model.
      * If update is successful, the browser will be redirected to the 'view' page.
@@ -93,8 +113,8 @@ class PedidoController extends Controller
      */
     public function actionUpdate($id)
     {
-        if (Yii::$app->user->can('update-orders')) {
         $model = $this->findModel($id);
+        if (Yii::$app->user->can('update-orders')) {
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->idpedido]);
@@ -103,7 +123,17 @@ class PedidoController extends Controller
         return $this->render('update', [
             'model' => $model,
         ]);
-    }else
+    }elseif(Yii::$app->user->identity->restauranteid == $model->idrestaurantepedido){
+            $model = $this->findModel($id);
+
+            if ($model->load(Yii::$app->request->post()) && $model->save()) {
+                return $this->redirect(['viewpedido']);
+            }
+
+            return $this->render('update_rest', [
+                'model' => $model,
+            ]);
+        }else
         {
             throw new ForbiddenHttpException;}}
 
@@ -116,11 +146,16 @@ class PedidoController extends Controller
      */
     public function actionDelete($id)
     {
+        $model = $this->findModel($id);
         if (Yii::$app->user->can('delete-order')) {
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
-    }else
+    }elseif(Yii::$app->user->identity->restauranteid == $model->idrestaurantepedido){
+            $this->findModel($id)->delete();
+
+            return $this->redirect(['viewpedido']);
+        }else
         {
             throw new ForbiddenHttpException;}}
 

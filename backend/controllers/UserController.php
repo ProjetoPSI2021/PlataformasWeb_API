@@ -69,6 +69,13 @@ class UserController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
+
+    public function actionViewuser($id)
+    {
+        return $this->render('view_user', [
+            'model' => $this->findModel($id),
+        ]);
+    }
     public function actionCreate()
     {
         if (Yii::$app->user->can('create-users')) {
@@ -84,6 +91,7 @@ class UserController extends Controller
     }else
         {
             throw new ForbiddenHttpException;}}
+
 
     public function actionLogout()
     {
@@ -115,6 +123,24 @@ class UserController extends Controller
     }else
         {
             throw new ForbiddenHttpException;}}
+    public function actionChooserest()
+    {
+        if(Yii::$app->user->identity->restauranteid == null){
+            $model = $this->findModel(Yii::$app->user->identity->id);
+
+            if ($model->load(Yii::$app->request->post()) && $model->save()) {
+                return $this->render('index', [
+                    'model' => $model,
+                ]);
+            }
+
+            return $this->render('chooserest', [
+                'model' => $model,
+            ]);}else{
+            {
+                throw new ForbiddenHttpException;}
+        }
+        }
 
     /**
      * Deletes an existing User model.

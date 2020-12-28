@@ -14,6 +14,7 @@ use Yii;
  * @property string|null $password_reset_token
  * @property string $email
  * @property int $status
+ * @property int $restauranteid
  * @property int $created_at
  * @property int $updated_at
  * @property string|null $verification_token

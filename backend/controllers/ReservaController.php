@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use backend\models\Prato;
 use Yii;
 use backend\models\Reserva;
 use backend\models\ReservaSearch;
@@ -54,6 +55,13 @@ class ReservaController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
+
+    public function actionViewreserva()
+    {
+        return $this->render('view_reserva', [
+        ]);
+    }
+
     public function actionView($id)
     {
         if (Yii::$app->user->can('list-reservation')) {
@@ -71,7 +79,7 @@ class ReservaController extends Controller
      */
     public function actionCreate()
     {
-        if (Yii::$app->user->can('create-reservation')) {
+        if (Yii::$app->user->can('create-order')) {
         $this->layout = 'blank';
         $model = new Reserva();
 
@@ -84,7 +92,28 @@ class ReservaController extends Controller
         ]);
     }else
         {
-            throw new ForbiddenHttpException;}}
+            throw new ForbiddenHttpException;}
+    }
+
+    public function actionCreaterest()
+    {
+        if (Yii::$app->user->can('create-order')) {
+            $this->layout = 'blank';
+            $model = new Reserva();
+
+            if ($model->load(Yii::$app->request->post()) && $model->save()) {
+                return $this->redirect(['view', 'id' => $model->idreservas]);
+            }
+
+            return $this->render('create_reserva', [
+                'model' => $model,
+            ]);
+        }else
+        {
+            throw new ForbiddenHttpException;}
+    }
+
+
     /**
      * Updates an existing Reserva model.
      * If update is successful, the browser will be redirected to the 'view' page.

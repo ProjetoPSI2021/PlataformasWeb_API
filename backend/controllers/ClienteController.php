@@ -54,6 +54,8 @@ class ClienteController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
+
+
     public function actionView($id)
     {
         if (Yii::$app->user->can('list-clients')) {

@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use backend\models\AuthItem;
 use frontend\models\ResendVerificationEmailForm;
 use frontend\models\VerifyEmailForm;
 use Yii;
@@ -158,6 +159,8 @@ class SiteController extends Controller
     public function actionSignup()
     {
         $model = new SignupForm();
+        $authItems = AuthItem::find()->where(['name'=>'admin'])->orWhere(['name'=>'worker'])->all();
+
         if ($model->load(Yii::$app->request->post()) && $model->signup()) {
             Yii::$app->session->setFlash('success', 'Thank you for registration. Please check your inbox for verification email.');
             return $this->goHome();
@@ -165,6 +168,7 @@ class SiteController extends Controller
 
         return $this->render('signup', [
             'model' => $model,
+            'authItems' => $authItems,
         ]);
     }
 

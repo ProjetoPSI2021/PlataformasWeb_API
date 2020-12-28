@@ -46,14 +46,21 @@ foreach($allPedidos as $pedido) {
                         <h2 class="lead"><b> <?php if($pedido->id_reserva != null){  echo "ID Reserva: $pedido->id_reserva";} ?> </b></h2>
                         <p class="text-muted text-sm"><b>   <?php  echo "$pedido->data"; ?>  </b>    <?php  echo "$pedido->tipo"; ?>  </p>
                         <ul class="ml-4 mb-0 fa-ul text-muted">
-                            <li class="small"><span class="fa-li"><i class="fas fa-user"></i></span>ID Cliente:<?php echo"$pedido->id_clientes"; ?> </li>
-                            <li class="small"><span class="fa-li"><i class="fas fa-tag"></i></span>Preço Total:<?php  echo "$pedido->preco"; ?>  </li>
-                            <li class="small"><span class="fa-li"><i class="fas fa-chalkboard"></i></span>Estado:    <?php  echo "$pedido->estadopedido"; ?> </li>
-
+                            <li><span class="fa-li"><i class="fas fa-user"></i></span>ID Cliente:<?php echo"$pedido->id_clientes"; ?> </li>
+                            <p></p>
+                            <li><span class="fa-li"><i class="fas fa-tag"></i></span>Preço Total:<?php  echo "$pedido->preco"; ?>  </li>
+                            <p></p>
+                            <li><span class="fa-li"><i class="fas fa-chalkboard"></i></span>Estado:    <?php  echo "$pedido->estadopedido"; ?> </li>
+                            <p></p>
+                            <li><span class="fa-li"><i class="fas fa-list-ol"></i></span>ID Prato:    <?php  echo "$pedido->idpratoorder"; ?> </li>
+                            <p></p>
+                            <li><span class="fa-li"><i class="fas fa-pizza-slice"></i></span>Nome Prato:    <?php  $allPratosPedidos = \backend\models\Prato::find()->where(['idPratos' => $pedido])->all();
+                                foreach($allPratosPedidos as $prato) {
+                                    echo $prato->nome;} ?> </li>
                         </ul>
                     </div>
                     <div class="col-5 text-center">
-                        <img src="http:\\localhost\advanced1\images\comida\<?php  echo "$pedido->idpedido"; ?>" alt="" class="img-circle img-fluid" width="160" height="160">                                        </div>
+                    </div>
                 </div>
             </div>
             <div class="card-footer">
@@ -72,9 +79,6 @@ foreach($allPedidos as $pedido) {
                     </a>
                     </a>
                     <p></p>
-                    <a href="index.php?r=prato%2Fview&id=<?php  echo "$pedido->idpedido"; ?>" >
-                        <?= Html::a('Alterar Imagem', ['update', 'id' => $pedido->idpedido], ['class' => 'btn btn-primary']) ?>
-                    </a>
                 </div>
             </div>
         </div>

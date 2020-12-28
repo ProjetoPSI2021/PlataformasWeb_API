@@ -17,7 +17,7 @@ class PedidoSearch extends Pedido
     public function rules()
     {
         return [
-            [['idpedido', 'id_reserva', 'id_clientes','idrestaurantepedido'], 'integer'],
+            [['idpedido', 'id_reserva', 'id_clientes','idrestaurantepedido','idpratoorder'], 'integer'],
             [['data', 'tipo', 'estadopedido'], 'safe'],
             [['preco'], 'number'],
         ];
@@ -61,6 +61,7 @@ class PedidoSearch extends Pedido
         $query->andFilterWhere([
             'idpedido' => $this->idpedido,
             'idrestaurantepedido' => $this->idrestaurantepedido,
+            'idpratoorder' => $this->idpratoorder,
             'id_reserva' => $this->id_reserva,
             'data' => $this->data,
             'id_clientes' => $this->id_clientes,

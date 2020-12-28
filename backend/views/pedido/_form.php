@@ -14,6 +14,16 @@ use kartik\select2\Select2;
 
     <?php $form = ActiveForm::begin(); ?>
 
+    <?= $form->field($model, 'idpratoorder')->widget(Select2::classname(), [
+        'data' => \yii\helpers\ArrayHelper::map(\backend\models\Prato::find()->all(),'idPratos','nome'),
+        'language' => 'de',
+        'options' => ['placeholder' => 'Select a Food ...'],
+        'pluginOptions' => [
+            'allowClear' => true
+        ],
+    ]);
+    ?>
+
     <?= $form->field($model, 'id_reserva')->textInput() ?>
 
     <?= $form->field($model, 'idrestaurantepedido')->widget(Select2::classname(), [

@@ -50,7 +50,7 @@ foreach($allusers as $user) {
                             <td><?php  echo "$user->username"; ?></td>
                             <td><?php  echo "$user->email"; ?></td>
                             <td><?php if($user->status=="10"){?><i class="far fa-check-circle"></i><span class="tag tag-success"> Autorizado</span></td>
-<?php }else{?><i class="fas fa-times"></i><span class="tag tag-success"> Não Autorizado</span></td><?php?>
+<?php }else{?><i class="fas fa-times"></i><span class="tag tag-success"> Não Autorizado</span></td>
                         </tr>
 <?php }} ?>
                         </tbody>

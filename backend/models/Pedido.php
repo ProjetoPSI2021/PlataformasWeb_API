@@ -14,6 +14,7 @@ use Yii;
  * @property string $tipo
  * @property string $estadopedido
  * @property int $id_clientes
+ * @property int $idpratoorder
  * @property float $preco
  *
  * @property Cliente $cliente
@@ -37,7 +38,7 @@ class Pedido extends \yii\db\ActiveRecord
     {
         return [
             [['data', 'tipo', 'id_clientes', 'preco','idrestaurantepedido'], 'required'],
-            [['id_reserva', 'id_clientes','idrestaurantepedido'], 'integer'],
+            [['id_reserva','idpratoorder', 'id_clientes','idrestaurantepedido'], 'integer'],
             [['data'], 'safe'],
             [['tipo'], 'string'],
             [['preco'], 'number'],
@@ -54,6 +55,7 @@ class Pedido extends \yii\db\ActiveRecord
         return [
             'idpedido' => 'Idpedido',
             'idrestaurantepedido' => 'ID Restaurante',
+            'idpratoorder' => 'ID Prato Pedido',
             'id_reserva' => 'Id Reserva',
             'data' => 'Data',
             'tipo' => 'Tipo',
