@@ -30,15 +30,46 @@ class LoginCest
     /**
      * @param FunctionalTester $I
      */
-    public function loginUser(FunctionalTester $I)
-    {
-        $I->amOnPage('/site/login');
-        $I->fillField('Username', 'erau');
-        $I->fillField('Password', 'password_0');
-        $I->click('login-button');
 
-        $I->see('Logout (erau)', 'form button[type=submit]');
-        $I->dontSeeLink('Login');
-        $I->dontSeeLink('Signup');
+    public function loginUseradmin(FunctionalTester $I)
+    {
+        $I->amOnPage('advanced1/backend/web/index.php?r=site%2Flogin');
+        $I->see('Sign in to start your session');
+        $I->fillField('Username', 'adminapi');
+        $I->fillField('Password', 'adminapi');
+        $I->click('Login');
+        $I->wait(10);
+        $I->saveSessionSnapshot('loginUseradmin');
     }
+
+    public function dashboardUserAdmin(FunctionalTester $I)
+    {
+        $I->loadSessionSnapshot('loginUseradmin');
+        $I->amOnPage('advanced1/backend/web/index.php');
+        $I->wait(5);
+        $I->see('adminapi');
+        $I->see('Dashboard Admin');
+    }
+
+    public function loginUsernormal(FunctionalTester $I)
+    {
+        $I->amOnPage('advanced1/backend/web/index.php?r=site%2Flogin');
+        $I->see('Sign in to start your session');
+        $I->fillField('Username', 'jose1234');
+        $I->fillField('Password', 'jose1234');
+        $I->click('Login');
+        $I->wait(10);
+        $I->saveSessionSnapshot('loginUsernormal');
+    }
+
+    public function dashboardUserNormal(FunctionalTester $I)
+    {
+        $I->loadSessionSnapshot('loginUsernormal');
+        $I->amOnPage('advanced1/backend/web/index.php');
+        $I->wait(5);
+        $I->see('jose1234');
+    }
+
+
+
 }

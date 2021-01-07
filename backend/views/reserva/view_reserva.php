@@ -13,23 +13,26 @@ $this->params['breadcrumbs'][] = $this->title;
 ListAsset::register($this);
 ?>
 <div class="reservas-index">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>
-        <?= Html::a('Create Reserva', ['create'], ['class' => 'btn btn-success']) ?>
+    <div class="card card-solid">
+        <div class="card-body pb-0">
+            <div class="card-body p-0">
+            <h1><img  src="http:\\localhost\advanced1\images\create\reserva.png" alt="AdminLTE Logo" class=""  width="250" height="150" style="opacity: .8">
+                <?= Html::encode($this->title) ?> </h1><p></p>
+    <p align="right">
+        <?= Html::a('Criar Reserva', ['createrest'], ['class' => 'btn btn-success']) ?>
     </p>
+            <div class="row d-flex align-items-stretch">
+</div><?php if (Yii::$app->user->identity->restauranteid != null) {
+            $allReservas = \backend\models\Reserva::find()->orderBy('data')->where(['id_restaurante' => Yii::$app->user->identity->restauranteid])->all();
+            foreach($allReservas as $reserva) {
 
-</div>
+            ?>
     <div class="card-body p-0">
         <table class="table table-striped projects">
             <thead>
 
-<?php if (Yii::$app->user->identity->restauranteid != null) {
-$allReservas = \backend\models\Reserva::find()->orderBy('data')->where(['id_restaurante' => Yii::$app->user->identity->restauranteid])->all();
-foreach($allReservas as $reserva) {
 
-?>
+
             <tr>
                 <th style="width: 1%">
                     #

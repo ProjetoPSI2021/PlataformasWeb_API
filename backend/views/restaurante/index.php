@@ -18,8 +18,11 @@ RestaurantesAsset::register($this);
 ?>
 
 <div class="restaurantes-index">
-
-    <h1><?= Html::encode($this->title) ?></h1>
+<p></p>
+    <div class="card card-solid">
+        <div class="card-body pb-0">
+    <h1><img  src="http:\\localhost\advanced1\images\create\restaurante.png" alt="AdminLTE Logo" class=""  width="100" height="100" style="opacity: .8">
+        <?= Html::encode($this->title) ?> </h1><p></p>
 
     <p>
         <?= Html::a('Criar Restaurante', ['create'], ['class' => 'btn btn-success']) ?>
@@ -56,7 +59,7 @@ RestaurantesAsset::register($this);
                                     </ul>
                                 </div>
                                 <div class="col-5 text-center">
-                                    <img src="http:\\localhost\advanced1\images\Restaurantes\<?php  echo "$restaurante->imagem"; ?>" alt="" class="img-circle img-fluid" width="160" height="160">                                        </div>
+                                    <img src="http:\\localhost\advanced1\images\Restaurantes\<?php  echo "$restaurante->imagem"; ?>" alt="NO IMAGE" class="img-circle img-fluid" width="160" height="160">                                        </div>
                             </div>
                         </div>
                         <div class="card-footer">

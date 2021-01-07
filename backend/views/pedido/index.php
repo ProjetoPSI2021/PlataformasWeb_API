@@ -7,28 +7,21 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\PedidoSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Pedido';
+$this->title = 'Pedidos - Admin';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="pedidos-index">
+<div class="card card-solid">
+    <div class="card-body pb-0">   <h1>        <img  src="http:\\localhost\advanced1\images\create\pedido.png" alt="AdminLTE Logo" class=""  width="100" height="100" style="opacity: .8">
+            <?= Html::encode($this->title) ?> </h1><p></p>
+        <p></p>
+        <a href="index.php?r=prato" class="btn btn-sm btn-primary">
+            <i class="fas fa-backward"></i> Voltar
+        </a>
+        <p></p>
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>
-        <?= Html::a('Create Pedido', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
-
-
-</div>
-
-<p></p>
-<a href="index.php?r=prato" class="btn btn-sm btn-primary">
-    <i class="fas fa-backward"></i> Voltar
-</a>
-<p></p>
+        <p align="right">
+            <?= Html::a('Criar Pedido', ['create'], ['class' => 'btn btn-success']) ?>
+        </p>
 <?php $allPedidos = \backend\models\Pedido::find()->orderBy(['data' => SORT_DESC ])->all();
 foreach($allPedidos as $pedido) {
 

@@ -84,7 +84,12 @@ $this->params['breadcrumbs'][] = $this->title;
                     <div class="info-box bg-light">
                         <div class="info-box-content">
                             <span class="info-box-text text-center text-muted">Pedidos Efetuados</span>
-                            <span class="info-box-number text-center text-muted mb-0">X</span>
+                            <span class="info-box-number text-center text-muted mb-0"><?php $allPedid = \backend\models\Pedido::find()->where(['idrestaurantepedido' => $model->idRestaurante])->all();
+                                $countPedid=count($allPedid);
+                                if($countPedid > 0){
+                                    ?> <?php echo $countPedid ?>  <?php
+                                }elseif($countPedid == 0){
+                                    echo "Não possui pedidos";  } ?> <span></span></span>
                         </div>
                     </div>
                 </div>
@@ -92,7 +97,12 @@ $this->params['breadcrumbs'][] = $this->title;
                     <div class="info-box bg-light">
                         <div class="info-box-content">
                             <span class="info-box-text text-center text-muted">Pratos Disponiveis</span>
-                            <span class="info-box-number text-center text-muted mb-0">X</span>
+                            <span class="info-box-number text-center text-muted mb-0"><?php $allPrat = \backend\models\Prato::find()->where(['r_id' => $model->idRestaurante])->all();
+                                $countPrat=count($allPrat);
+                                if($countPrat > 0){
+                                    ?> <?php echo $countPrat ?>  <?php
+                                }elseif($countPrat == 0){
+                                    echo "Não possui pratos";  } ?><span></span>
                         </div>
                     </div>
                 </div>
@@ -100,7 +110,12 @@ $this->params['breadcrumbs'][] = $this->title;
                     <div class="info-box bg-light">
                         <div class="info-box-content">
                             <span class="info-box-text text-center text-muted">Funcionarios</span>
-                            <span class="info-box-number text-center text-muted mb-0">X <span>
+                            <span class="info-box-number text-center text-muted mb-0"> <?php $allFunc = \backend\models\User::find()->where(['restauranteid' => $model->idRestaurante])->all();
+                                $countFunc=count($allFunc);
+                                if($countFunc > 0){
+                                ?> <?php echo $countFunc ?>  <?php
+                                            }elseif($countFunc == 0){
+                                    echo "Não possui Funcionarios";  } ?> <span>
                         </div>
                     </div>
                 </div>
@@ -113,10 +128,15 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <div class="card-body pb-0">
                                         <div class="row d-flex align-items-stretch">
                                             <!-- Default box -->
-                                            <?php $allPedidos = \backend\models\Pedido::find()->orderBy(['data' => SORT_DESC])->limit(3)->all();
+                                            <?php $allPedidos = \backend\models\Pedido::find()->orderBy(['data' => SORT_DESC])->limit(3)->where(['idrestaurantepedido' => $model->idRestaurante])->all();
+                                            $count=count($allPedidos);
+                                            if($count == 0){
+                                                ?><p>Ainda não possui pedidos<?php
+                                            }
                                             foreach($allPedidos as $pedido) {
 
                                             ?>
+
                                             <div>
 
                                             </div>

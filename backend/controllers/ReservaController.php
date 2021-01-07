@@ -102,7 +102,7 @@ class ReservaController extends Controller
             $model = new Reserva();
 
             if ($model->load(Yii::$app->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->idreservas]);
+                return $this->redirect(['viewreserva']);
             }
 
             return $this->render('create_reserva', [

@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Prato */
 
-$this->title = 'Create Prato';
+
 $this->params['breadcrumbs'][] = ['label' => 'Pratos', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

@@ -18,12 +18,12 @@ class ClienteController extends ActiveController{
         return ['total' => count($recs)];
     }
 
-    public function actionMorada($id){
+    public function actionEmail($id){
         $climodel = new $this ->modelClass;
         $rec = $climodel::find() -> where("idCliente=".$id) -> one();
         if($rec)
-            return ['idCliente' => $id, 'morada' => $rec -> morada];
-        return ['idCliente' => $id, 'morada' => "null"];
+            return ['idCliente' => $id, 'email' => $rec -> email];
+        return ['idCliente' => $id, 'email' => "null"];
     }
 
     public function actionUsername($id){
@@ -56,17 +56,7 @@ class ClienteController extends ActiveController{
                 'application/json' => Response::FORMAT_JSON,
             ]];
         // remove authentication filter if there is one
-        unset($behaviors['authenticator']);
-        $behaviors['authenticator'] = [
-            'class' => CompositeAuth::className(),
-            'authMethods' => [
-                [
-                    'class' => HttpBasicAuth::className(),
-                    'auth' => [$this, 'auth']
-                ],
-                'class' => QueryParamAuth::className()
-            ],
-        ];
+
         return $behaviors;
 
     }

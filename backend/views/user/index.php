@@ -26,9 +26,9 @@ $this->params['breadcrumbs'][] = $this->title;
                         </div>
                     </div>  <h1><?= Html::encode($this->title) ?></h1>
 
-                    <p>
-                        <?= Html::a('Create User', ['create'], ['class' => 'btn btn-success']) ?>
-                    </p>
+                    <?php //Link Temporario?>
+                        <a href="http://localhost/advanced1/frontend/web/index.php?r=site%2Fsignup" class="btn btn-success">Registar novo utilizador</a>
+
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body table-responsive p-0">

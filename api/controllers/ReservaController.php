@@ -21,8 +21,7 @@ class ReservaController extends ActiveController{
             'formats' => [
                 'application/json' => Response::FORMAT_JSON,
             ]];
-        // remove authentication filter if there is one
-        unset($behaviors['authenticator']);
+       /* unset($behaviors['authenticator']);
         $behaviors['authenticator'] = [
             'class' => CompositeAuth::className(),
             'authMethods' => [
@@ -32,7 +31,7 @@ class ReservaController extends ActiveController{
                 ],
                 'class' => QueryParamAuth::className()
             ],
-        ];
+        ];*/
         return $behaviors;
 
     }
@@ -45,4 +44,33 @@ class ReservaController extends ActiveController{
         return null;
     }
 
+    public function actionDatacr() {
+        $model = new $this->modelClass;
+        $results = $model::find()->orderBy(['data' => SORT_ASC])->all();
+        return['results' => $results];
+    }
+
+    public function actionDatadecr() {
+        $model = new $this->modelClass;
+        $results = $model::find()->orderBy(['data' => SORT_ASC])->all();
+        return['results' => $results];
+    }
+
+    public function actionNpessoasdecr() {
+        $model = new $this->modelClass;
+        $results = $model::find()->orderBy(['npessoas' => SORT_ASC])->all();
+        return['results' => $results];
+    }
+
+    public function actionNpessoascr() {
+        $model = new $this->modelClass;
+        $results = $model::find()->orderBy(['npessoas' => SORT_ASC])->all();
+        return['results' => $results];
+    }
+
+    public function actionTotal(){
+        $climodel = new $this ->modelClass;
+        $recs = $climodel::find() -> all();
+        return ['total' => count($recs)];
+    }
 }

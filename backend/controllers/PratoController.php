@@ -87,11 +87,14 @@ class PratoController extends Controller
             $model->save();
             $idPratos = $model->idPratos;
             $image = UploadedFile::getInstance($model, 'imagem');
+            if($image==null){
+                $model->save();
+            }else{
             $img_name ='food_' . $idPratos . '.' . $image->getExtension();
             $image->saveAs(Yii::getAlias('@pratosImgPath') . '/' . $img_name);
             $model->imagem = $img_name;
             $model->save();
-
+        }
             return $this->redirect(['view', 'id' => $model->idPratos]);
         }
 
@@ -112,11 +115,14 @@ class PratoController extends Controller
                 $model->save();
                 $idPratos = $model->idPratos;
                 $image = UploadedFile::getInstance($model, 'imagem');
+                if($image==null){
+                    $model->save();
+                }else{
                 $img_name ='food_' . $idPratos . '.' . $image->getExtension();
                 $image->saveAs(Yii::getAlias('@pratosImgPath') . '/' . $img_name);
                 $model->imagem = $img_name;
                 $model->save();
-
+            }
                 return $this->redirect(['view', 'id' => $model->idPratos]);
             }
 

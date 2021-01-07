@@ -13,18 +13,20 @@ $this->params['breadcrumbs'][] = $this->title;
 ListAsset::register($this);
 ?>
 <div class="reservas-index">
-
-    <h1><?= Html::encode($this->title) ?></h1>
+    <div class="card card-solid">
+        <div class="card-body pb-0">
+    <h1><img  src="http:\\localhost\advanced1\images\create\reserva.png" alt="AdminLTE Logo" class=""  width="250" height="150" style="opacity: .8">
+        <?= Html::encode($this->title) ?> </h1><p></p>
 
     <p>
-        <?= Html::a('Create Reserva', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Criar Reserva', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
 </div>
     <div class="card-body p-0">
         <table class="table table-striped projects">
             <thead>
-<?php $allReservas = \backend\models\Reserva::find()->orderBy('data')->all();
+<?php $allReservas = \backend\models\Reserva::find()->orderBy(['data' => SORT_DESC])->all();
 foreach($allReservas as $reserva) {
 
 ?>

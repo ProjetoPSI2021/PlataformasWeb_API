@@ -7,38 +7,42 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\PedidoSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Pedido';
+$this->title = 'Pedidos';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="pedidos-index">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>
-        <?= Html::a('Create Pedido', ['createrest'], ['class' => 'btn btn-success']) ?>
-    </p>
-
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
 
 
-</div>
 
-<p></p>
-<a href="index.php?r=prato" class="btn btn-sm btn-primary">
-    <i class="fas fa-backward"></i> Voltar
-</a>
-<p></p>
-<?php
-
-if (Yii::$app->user->identity->restauranteid != null) {
-$allPedidos = \backend\models\Pedido::find()->orderBy(['data' => SORT_DESC ])->where(['idrestaurantepedido' => Yii::$app->user->identity->restauranteid])->all();
-foreach($allPedidos as $pedido) {
-
-?>
 <div class="card card-solid">
-    <div class="card-body pb-0">
-        <div class="row d-flex align-items-stretch">
+    <div class="card-body pb-0">   <h1>        <img  src="http:\\localhost\advanced1\images\create\pedido.png" alt="AdminLTE Logo" class=""  width="100" height="100" style="opacity: .8">
+            <?= Html::encode($this->title) ?> </h1><p></p>
+
+
+
+        <a href="index.php?r=prato" class="btn btn-sm btn-primary">
+            <i class="fas fa-backward"></i> Voltar
+        </a>
+        <a href="index.php?r=prato" class="btn btn-sm btn-primary">
+            <i class="fas fa-is"></i> Ver pedidos pendentes
+        </a>
+
+        <p align="right">
+            <?= Html::a('Criar Pedido', ['createrest'], ['class' => 'btn btn-success']) ?>
+        </p>
+
+        <?php
+
+        if (Yii::$app->user->identity->restauranteid != null) {
+        $allPedidos = \backend\models\Pedido::find()->orderBy(['data' => SORT_DESC ])->where(['idrestaurantepedido' => Yii::$app->user->identity->restauranteid])->all();
+        foreach($allPedidos as $pedido) {
+
+        ?>
+        <!-- Default box -->
+            <div class="card card-solid">
+                <div class="card-body pb-0">
+                    <div class="row d-flex align-items-stretch">
+
             <!-- Default box -->
             <div>
                <h2>ID: <?php  echo "$pedido->idpedido"; ?></h2>

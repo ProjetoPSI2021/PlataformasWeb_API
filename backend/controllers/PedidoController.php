@@ -74,13 +74,22 @@ class PedidoController extends Controller
         ]);
     }
 
+    public function actionViewpedidopendente()
+    {
+        return $this->render('view_pedidopendentes', [
+        ]);
+    }
+
+
     public function actionCreate()
     {
+        $this->layout = 'blank';
+
         if (Yii::$app->user->can('create-order')) {
         $model = new Pedido();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->idpedido]);
+            return $this->redirect(['index']);
         }
 
         return $this->render('create', [
@@ -92,11 +101,12 @@ class PedidoController extends Controller
 
     public function actionCreaterest()
     {
-
+        $this->layout = 'blank';
             $model = new Pedido();
 
+
             if ($model->load(Yii::$app->request->post()) && $model->save()) {
-                return $this->render('view_pedido', ['id' => $model->idpedido]);
+                return $this->redirect(['viewpedido']);
             }
 
             return $this->render('create_pedido', [

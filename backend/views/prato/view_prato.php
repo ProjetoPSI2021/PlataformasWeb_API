@@ -19,10 +19,10 @@ $this->params['breadcrumbs'][] = $this->title;
 <!-- Default box -->
 <div class="card card-solid">
     <div class="card-body pb-0">
-        <h1><?= Html::encode($this->title) ?></h1>
-
+        <h1>        <img  src="http:\\localhost\advanced1\images\create\prato.png" alt="AdminLTE Logo" class=""  width="150" height="120" style="opacity: .8">
+            <?= Html::encode($this->title) ?> </h1><p></p>
         <p align="right">
-            <?= Html::a('Create Prato', ['create'], ['class' => 'btn btn-success']) ?>
+            <?= Html::a('Criar Prato', ['createrest'], ['class' => 'btn btn-success']) ?>
         </p>
         <div class="row d-flex align-items-stretch">
             <?php if (Yii::$app->user->identity->restauranteid != null) {

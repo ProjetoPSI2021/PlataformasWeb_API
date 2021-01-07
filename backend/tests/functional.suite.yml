@@ -2,4 +2,9 @@ suite_namespace: backend\tests\functional
 actor: FunctionalTester
 modules:
     enabled:
-        - Yii2
+      - WebDriver:
+          url: 'http://localhost/'
+          window_size: false # disabled in ChromeDriver
+          port: 8010
+          browser: chrome
+

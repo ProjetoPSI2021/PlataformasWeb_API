@@ -44,7 +44,7 @@ class Cliente extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'idCliente' => 'Id Cliente',
+            'idCliente' => 'ID Cliente',
             'username' => 'Username',
             'email' => 'Email',
             'password' => 'Password',

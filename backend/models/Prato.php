@@ -48,13 +48,13 @@ class Prato extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'idPratos' => 'Id Pratos',
+            'idPratos' => 'ID Prato',
             'nome' => 'Nome',
             'imagem' => 'Imagem',
             'tipo' => 'Tipo',
-            'r_id' => 'R ID',
-            'r_preco' => 'R Preco',
-            'r_ingredientes' => 'R Ingredientes',
+            'r_id' => 'ID Restaurante',
+            'r_preco' => 'Preço',
+            'r_ingredientes' => 'Ingredientes',
         ];
     }
 }

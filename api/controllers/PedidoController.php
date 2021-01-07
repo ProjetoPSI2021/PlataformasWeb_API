@@ -21,18 +21,8 @@ class PedidoController extends ActiveController{
             'formats' => [
                 'application/json' => Response::FORMAT_JSON,
             ]];
-        // remove authentication filter if there is one
         unset($behaviors['authenticator']);
-        $behaviors['authenticator'] = [
-            'class' => CompositeAuth::className(),
-            'authMethods' => [
-                [
-                    'class' => HttpBasicAuth::className(),
-                    'auth' => [$this, 'auth']
-                ],
-                'class' => QueryParamAuth::className()
-            ],
-        ];
+
         return $behaviors;
 
     }
@@ -51,10 +41,35 @@ class PedidoController extends ActiveController{
         return['results' => $results];
     }
 
+    public function actionTotal(){
+        $climodel = new $this ->modelClass;
+        $recs = $climodel::find() -> all();
+        return ['total' => count($recs)];
+    }
+
     public function actionDatadecr() {
         $model = new $this->modelClass;
         $results = $model::find()->orderBy(['data' => SORT_DESC])->all();
         return['results' => $results];
+    }
+
+    public function actionPrecocr() {
+        $model = new $this->modelClass;
+        $results = $model::find()->orderBy(['preco' => SORT_ASC])->all();
+        return['results' => $results];
+    }
+
+    public function actionPrecodecr() {
+        $model = new $this->modelClass;
+        $results = $model::find()->orderBy(['preco' => SORT_DESC])->all();
+        return['results' => $results];
+    }
+
+    public function actionPedrecente() {
+        $limit = 5;
+        $model = new $this->modelClass;
+        $results = $model::find()->limit($limit)->orderBy(['data' => SORT_DESC, 'idpedido' => SORT_ASC])->all();
+        return['limite' => $limit, 'results' => $results];
     }
 
 }

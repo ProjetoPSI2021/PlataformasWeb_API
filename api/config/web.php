@@ -52,15 +52,22 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                 [ 'class' => 'yii\rest\UrlRule',
-                    'controller' => 'cliente',
+                    'controller' => ['cliente','pedido','prato','reserva','restaurante','user'],
+                    'pluralize' => false,
                     'extraPatterns' => [
                         'GET total' => 'total',//Total de clientes
-                        'GET {id}/morada' => 'morada',//Morada de um certo cliente
+                        'GET {id}/email' => 'email',//Morada de um certo cliente
                         'GET {id}/username' => 'username',//Username de um certo cliente
-                        'GET datacr' => 'datacr',//Visualização da data em ordem crescente
-                        'GET datadecr' => 'datadecr',//Visualização da data em ordem descrescente
+                        'GET datacr' => 'datacr',//Visualização de pedidos data em ordem crescente
+                        'GET datadecr' => 'datadecr',//Visualização de pedidos da data em ordem descrescente
                         'GET usernamecr' => 'usernamecr', //Visualização do username em ordem descrescente
                         'GET usernamedecr' => 'usernamedecr', //Visualização do username em ordem descrescente
+                        'GET precocr' => 'precocr', //Visualização do preço em ordem descrescente
+                        'GET foodnamedecr' => 'foodnamedecr', //Visualização do username em ordem descrescente
+                        'GET foodnamecr' => 'foodnamecr', //Visualização do username em ordem descrescente
+                        'GET {id}/preco' => 'preco', //Visualização
+                        'GET pedrecente' => 'pedrecente', //Visualização
+
                     ]
                 ],
                 [ 'class' => 'yii\rest\UrlRule', 'controller' => 'pedido'],

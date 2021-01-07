@@ -79,10 +79,13 @@ class RestauranteController extends Controller
 
     public function actionViewrestaurante($id)
     {
+        if ($id == Yii::$app->user->identity->restauranteid) {
         return $this->render('view_restaurante', [
             'model' => $this->findModel($id),
         ]);
-    }
+    }else{
+            throw new ForbiddenHttpException;}
+        }
 
     /**
      * Creates a new Restaurante model.
@@ -92,16 +95,22 @@ class RestauranteController extends Controller
     public function actionCreate()
     {
         if(Yii::$app->user->can('create-restaurants')){
+            $this->layout = 'blank';
             $model = new Restaurante();
 
             if ($model->load(Yii::$app->request->post())) {
                 $model->save();
                 $idRestaurante=$model->idRestaurante;
                 $image=UploadedFile::getInstance($model,'imagem');
-                $img_name ='rest_' . $idRestaurante . '.' . $image->getExtension();
-                $image->saveAs( Yii::getAlias('@restauranteImgPath') . '/' .$img_name);
-                $model->imagem=$img_name;
-                $model->save();
+                if($image==null){
+                    $model->save();
+                }else{
+                    $img_name ='rest_' . $idRestaurante . '.' . $image->getExtension();
+                    $image->saveAs( Yii::getAlias('@restauranteImgPath') . '/' .$img_name);
+                    $model->imagem=$img_name;
+                    $model->save();
+                }
+
 
 
 

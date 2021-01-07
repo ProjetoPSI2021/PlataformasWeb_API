@@ -37,7 +37,7 @@ class Pedido extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['data', 'tipo', 'id_clientes', 'preco','idrestaurantepedido'], 'required'],
+            [['tipo', 'id_clientes', 'preco','idrestaurantepedido'], 'required'],
             [['id_reserva','idpratoorder', 'id_clientes','idrestaurantepedido'], 'integer'],
             [['data'], 'safe'],
             [['tipo'], 'string'],
@@ -53,14 +53,14 @@ class Pedido extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'idpedido' => 'Idpedido',
+            'idpedido' => 'ID Pedido',
             'idrestaurantepedido' => 'ID Restaurante',
             'idpratoorder' => 'ID Prato Pedido',
-            'id_reserva' => 'Id Reserva',
+            'id_reserva' => 'ID Reserva',
             'data' => 'Data',
             'tipo' => 'Tipo',
-            'id_clientes' => 'Id Cliente',
-            'preco' => 'Preco',
+            'id_clientes' => 'ID Cliente',
+            'preco' => 'Preço',
             'estadopedido' => 'Estado',
         ];
     }

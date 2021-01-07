@@ -8,7 +8,6 @@ use Yii;
  * This is the model class for table "Prato".
  *
  * @property int $idPratos
- * @property int $id_pedidos
  * @property string $nome
  * @property resource $imagem
  * @property string $tipo
@@ -32,13 +31,13 @@ class Prato extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_pedidos', 'nome', 'imagem', 'tipo', 'r_id', 'r_preco',  'r_ingredientes', 'r_topfood'], 'required'],
-            [['id_pedidos', 'r_id'], 'integer'],
-            [['imagem', 'tipo'], 'string'],
+            [['nome', 'tipo', 'r_id', 'r_preco', 'r_ingredientes'], 'required'],
+            [['tipo'], 'string'],
+            [['r_id'], 'integer'],
             [['r_preco'], 'number'],
             [['nome'], 'string', 'max' => 50],
+            [['imagem'], 'string', 'max' => 200],
             [['r_ingredientes'], 'string', 'max' => 100],
-            [['id_pedidos'], 'exist', 'skipOnError' => true, 'targetClass' => Pedido::className(), 'targetAttribute' => ['id_pedidos' => 'idpedido']],
             [['r_id'], 'exist', 'skipOnError' => true, 'targetClass' => Restaurante::className(), 'targetAttribute' => ['r_id' => 'idRestaurante']],
         ];
     }
@@ -50,7 +49,6 @@ class Prato extends \yii\db\ActiveRecord
     {
         return [
             'idPratos' => 'Id Pratos',
-            'id_pedidos' => 'Id Pedidos',
             'nome' => 'Nome',
             'imagem' => 'Imagem',
             'tipo' => 'Tipo',

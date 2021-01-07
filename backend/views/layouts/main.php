@@ -67,7 +67,7 @@ ListAsset::register($this);
             <!-- Sidebar user (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="info">
-                    <a><?php echo Yii::$app->user->identity->username?></a>
+                    <a name="useridentity"><?php echo Yii::$app->user->identity->username?></a>
                 </div>
             </div>   <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -89,7 +89,7 @@ ListAsset::register($this);
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
-                                Dashboard
+                                Dashboard Admin
                                 <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
@@ -163,11 +163,17 @@ ListAsset::register($this);
                                             <p> &nbsp Reservas</p>
                                         </a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a href="../../backend/web/index.php?r=restaurante%2Fviewrestaurante&id=<?php echo Yii::$app->user->identity->restauranteid ?>" class="nav-link">
+                                            <i class="fas fa-drumstick-bite"></i>
+                                            <p>&nbspMeu Restaurante</p>
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
                     <li class="nav-item">
                         <a href="../../backend/web/index.php?r=restaurante%2Fviewrestaurante&id=1" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
+                            <i class="nav-icon fas fa-drumstick-bite"></i>
                             <p>
                                 Meu Restaurante
                                 <span class="right badge badge-danger">New</span>
@@ -542,12 +548,12 @@ ListAsset::register($this);
     </aside>
     <!-- /.control-sidebar -->
 </div>
+
 <!-- ./wrapper -->
 
 
 
-</body>
-</html>
+
 
 <?php $this->endBody() ?>
 </body>

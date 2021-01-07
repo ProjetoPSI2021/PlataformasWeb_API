@@ -9,8 +9,6 @@ use Yii;
  *
  * @property int $idCliente
  * @property string $username
- * @property string $primeiroNome
- * @property string $ultimoNome
  * @property string $morada
  * @property string $password
  */
@@ -30,8 +28,8 @@ class Cliente extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['username', 'primeiroNome', 'ultimoNome', 'morada', 'password'], 'required'],
-            [['username', 'primeiroNome', 'ultimoNome', 'morada', 'password'], 'string', 'max' => 50],
+            [['username', 'email', 'password'], 'required'],
+            [['username', 'email', 'password'], 'string', 'max' => 50],
         ];
     }
 
@@ -43,9 +41,7 @@ class Cliente extends \yii\db\ActiveRecord
         return [
             'idCliente' => 'Id Cliente',
             'username' => 'Username',
-            'primeiroNome' => 'Primeiro Nome',
-            'ultimoNome' => 'Ultimo Nome',
-            'morada' => 'Morada',
+            'email' => 'Email',
             'password' => 'Password',
         ];
     }

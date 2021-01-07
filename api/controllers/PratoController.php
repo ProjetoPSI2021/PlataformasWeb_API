@@ -23,7 +23,7 @@ class PratoController extends ActiveController
                 'application/json' => Response::FORMAT_JSON,
             ]];
         // remove authentication filter if there is one
-        unset($behaviors['authenticator']);
+       /* unset($behaviors['authenticator']);
         $behaviors['authenticator'] = [
             'class' => CompositeAuth::className(),
             'authMethods' => [
@@ -33,7 +33,8 @@ class PratoController extends ActiveController
                 ],
                 'class' => QueryParamAuth::className()
             ],
-        ];
+
+        ];*/
         return $behaviors;
 
     }
@@ -97,5 +98,43 @@ class PratoController extends ActiveController
         } else {
             file_put_contents("debug.output", "Time out!");
         }
+    }
+
+    public function actionFoodnamecr() {
+        $model = new $this->modelClass;
+        $results = $model::find()->orderBy(['nome' => SORT_ASC])->all();
+        return['results' => $results];
+    }
+
+    public function actionFoodnamedecr() {
+        $model = new $this->modelClass;
+        $results = $model::find()->orderBy(['nome' => SORT_DESC])->all();
+        return['results' => $results];
+    }
+
+    public function actionPrecocr() {
+        $model = new $this->modelClass;
+        $results = $model::find()->orderBy(['r_preco' => SORT_ASC])->all();
+        return['results' => $results];
+    }
+
+    public function actionPreco($id){
+        $climodel = new $this ->modelClass;
+        $rec = $climodel::find() -> where("idPratos=".$id) -> one();
+        if($rec)
+            return ['idPratos' => $id, 'r_preco' => $rec -> r_preco];
+        return ['idPratos' => $id, 'r_preco' => "null"];
+    }
+
+    public function actionPrecodecr() {
+        $model = new $this->modelClass;
+        $results = $model::find()->orderBy(['r_preco' => SORT_DESC])->all();
+        return['results' => $results];
+    }
+
+    public function actionTotal(){
+        $climodel = new $this ->modelClass;
+        $recs = $climodel::find() -> all();
+        return ['total' => count($recs)];
     }
 }

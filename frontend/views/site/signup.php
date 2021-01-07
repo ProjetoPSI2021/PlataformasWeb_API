@@ -11,36 +11,108 @@ use yii\helpers\ArrayHelper;
 
 $this->title = 'Signup';
 $this->params['breadcrumbs'][] = $this->title;
+
 ?>
-<div class="site-signup">
-    <h1><?= Html::encode($this->title) ?></h1>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AdminLTE 3 | Log in</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <p>Welcome to the EatAway Website:</p>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../../frontend/plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="../../frontend/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../../frontend/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<body>
+<div>
+    <div class="login-logo">
 
-    <p>Please fill out the following fields to signup:</p>
+        <img src="http:\\localhost\advanced1\images\logo\logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <a><b>EatAway</b></a>
+    </div>
+    <!-- /.login-logo -->
 
-    <div class="row">
-        <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'form-signup']); ?>
-
+    <div class="container">
+        <div class="card">
+            <div class="card-body login-card-body">
+                <p class="login-box-msg">Sign up to start your session</p>
+                <?php $form = ActiveForm::begin(['id' => 'form-signup']); ?>
                 <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
 
+                <div class="input-group-append">
+
+                </div>
                 <?= $form->field($model, 'email') ?>
+                <div class="input-group-append">
+
+                </div>
 
                 <?= $form->field($model, 'password')->passwordInput() ?>
 
-
-            <?php
-            $authItems = ArrayHelper::map($authItems, 'name','name')
-            ?>
+                <?php
+                $authItems = ArrayHelper::map($authItems, 'name','name')
+                ?>
                 <?= $form->field($model, 'permissions')->checkboxList($authItems); ?>
+            </div>
 
-
-            <div class="form-group">
-                    <?= Html::submitButton('Signup', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
-                </div>
-
-            <?php ActiveForm::end(); ?>
         </div>
+        <div class="row">
+            <div class="col-8">
+                <div class="icheck-primary">
+                    <input type="checkbox" id="remember">
+                    <label for="remember">
+                        Remember Me
+                    </label>
+                </div>
+            </div>
+            <!-- /.col -->
+            <div class="col-4">
+                <?= Html::submitButton('Signup', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
+            </div>
+            <!-- /.col -->
+
+        </div> <?php ActiveForm::end(); ?>
+        <div class="social-auth-links text-center mb-3">
+            <p>- OR -</p>
+            <a href="#" class="btn btn-block btn-primary">
+                <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
+            </a>
+            <a href="#" class="btn btn-block btn-danger">
+                <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
+            </a>
+        </div>
+        <!-- /.social-auth-links -->
+
+        <p class="mb-1">
+            <a href="forgot-password.html">I forgot my password</a>
+        </p>
+        <p class="mb-0">
+            <a href="register.html" class="text-center">Register a new membership</a>
+        </p>
     </div>
+    <!-- /.login-card-body -->
 </div>
+</div>
+<!-- /.login-box -->
+
+<!-- jQuery -->
+<script src="../../frontend/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../../frontend/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../../frontend/dist/js/adminlte.min.js"></script>
+
+</body>
+</html>
+
+

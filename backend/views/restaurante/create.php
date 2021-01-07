@@ -5,7 +5,6 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Restaurante */
 
-$this->title = 'Create Restaurante';
 $this->params['breadcrumbs'][] = ['label' => 'Restaurante', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
