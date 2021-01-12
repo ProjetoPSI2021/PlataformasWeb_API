@@ -2,5 +2,9 @@ suite_namespace: backend\tests\unit
 actor: UnitTester
 modules:
   enabled:
-    - Yii2
     - Asserts
+    - Yii2:
+        part: [orm, email]
+
+
+

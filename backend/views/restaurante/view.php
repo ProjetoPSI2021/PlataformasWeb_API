@@ -54,23 +54,11 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
             <div class="card-footer">
                 <div class="text-right">
-                    <a href="#" >
-                        <?= Html::a('Delete', ['delete', 'id' => $model->nome], [
-                            'class' => 'btn btn-danger',
-                            'data' => [
-                                'confirm' => 'Are you sure you want to delete this item?',
-                                'method' => 'post',
-                            ],
-                        ]) ?>
-                    </a>
                     <a href="index.php?r=prato%2Fview&id=<?php  echo "$model->idRestaurante"; ?>" >
                         <?= Html::a('Update', ['update', 'id' => $model->idRestaurante], ['class' => 'btn btn-primary']) ?>
                     </a>
-                    </a>
+
                     <p></p>
-                    <a href="index.php?r=prato%2Fview&id=<?php  echo "$model->idRestaurante"; ?>" >
-                        <?= Html::a('Alterar Imagem', ['update', 'id' => $model->idRestaurante], ['class' => 'btn btn-primary']) ?>
-                    </a>
                 </div>
             </div>
         </div>

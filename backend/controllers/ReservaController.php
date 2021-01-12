@@ -97,7 +97,7 @@ class ReservaController extends Controller
 
     public function actionCreaterest()
     {
-        if (Yii::$app->user->can('create-order')) {
+        if (Yii::$app->user->can('createown-reservation')) {
             $this->layout = 'blank';
             $model = new Reserva();
 
@@ -123,6 +123,7 @@ class ReservaController extends Controller
      */
     public function actionUpdate($id)
     {
+        $this->layout = 'blank';
         if (Yii::$app->user->can('update-reservation')) {
         $model = $this->findModel($id);
 

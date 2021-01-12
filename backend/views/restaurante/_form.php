@@ -10,7 +10,6 @@ $this->title = 'Create Restaurante - Admin';
 ?>
 <div class="login-box">
     <div class="login-logo">
-        <h3 align="center">Admin</h3>
         <img src="http:\\localhost\advanced1\images\create\restaurante.png" alt="AdminLTE Logo" class=""  width="100" height="100" style="opacity: .8">
 
     </div>

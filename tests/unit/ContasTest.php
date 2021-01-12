@@ -1,5 +1,5 @@
 <?php 
-class ContasTest extends \Codeception\Test\Unit
+class ContasTest extends Codeception\Test\Unit
 {
     /**
      * @var \UnitTester

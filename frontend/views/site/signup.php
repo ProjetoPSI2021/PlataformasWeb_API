@@ -60,45 +60,46 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= $form->field($model, 'password')->passwordInput() ?>
 
                 <?php
+
                 $authItems = ArrayHelper::map($authItems, 'name','name')
                 ?>
+
                 <?= $form->field($model, 'permissions')->checkboxList($authItems); ?>
+
+                <a class="icheck-primary" >Concordo que sou um funcionário de um restaurante pertencente à EatAway.</a>
+                <p>
+                <a class="icheck-primary" >Todos os campos são obrigatórios.</a></p>
+
             </div>
 
         </div>
         <div class="row">
             <div class="col-8">
                 <div class="icheck-primary">
-                    <input type="checkbox" id="remember">
-                    <label for="remember">
-                        Remember Me
-                    </label>
+
+                </div><div class="col-4">
+                    <?php ?>
+                    <?= Html::submitButton('Signup', ['class' => 'btn btn-primary', 'name' => 'signup-button']);
+                     ?>
                 </div>
             </div>
             <!-- /.col -->
-            <div class="col-4">
-                <?= Html::submitButton('Signup', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
-            </div>
+
             <!-- /.col -->
 
         </div> <?php ActiveForm::end(); ?>
         <div class="social-auth-links text-center mb-3">
             <p>- OR -</p>
-            <a href="#" class="btn btn-block btn-primary">
-                <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
+            <a class="btn btn-block btn-primary">
+                <i class="fab fa-facebook mr-2"></i> Sign up using Facebook
             </a>
-            <a href="#" class="btn btn-block btn-danger">
-                <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
+            <a class="btn btn-block btn-danger">
+                <i class="fab fa-google-plus mr-2"></i> Sign up using Google+
             </a>
         </div>
         <!-- /.social-auth-links -->
 
-        <p class="mb-1">
-            <a href="forgot-password.html">I forgot my password</a>
-        </p>
-        <p class="mb-0">
-            <a href="register.html" class="text-center">Register a new membership</a>
-        </p>
+
     </div>
     <!-- /.login-card-body -->
 </div>

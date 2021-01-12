@@ -33,9 +33,9 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <h2 class="lead"><b>   <?php  echo "$model->nome"; ?> </b></h2>
                                     <p class="text-muted text-sm"><b>   <?php  echo "$model->nome"; ?>  </b>    <?php  echo "$model->nome"; ?>  </p>
                                     <ul class="ml-4 mb-0 fa-ul text-muted">
-                                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span>Morada:<?php echo"$model->tipo"; ?> </li>
-                                        <li class="small"><span class="fa-li"><i class="fas fa-person-booth"></i></span>Salas:<?php  echo "$model->tipo"; ?> / Mesas:<?php  echo "$model->tipo"; ?>  </li>
-                                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span>    <?php  echo "$model->tipo"; ?> </li>
+                                        <li class="small"><span class="fa-li"><i ></i></span>Tipo:<?php echo"$model->tipo"; ?> </li>
+                                        <li class="small"><span class="fa-li"><i ></i></span>Preco:<?php  echo "$model->r_preco"; ?>  </li>
+                                        <li class="small"><span class="fa-li"><i ></i></span> Ingredientes:   <?php  echo "$model->r_ingredientes"; ?> </li>
 
                                     </ul>
                                 </div>
@@ -56,11 +56,6 @@ $this->params['breadcrumbs'][] = $this->title;
                                 </a>
                                 <a href="index.php?r=prato%2Fview&id=<?php  echo "$model->idPratos"; ?>" >
                                         <?= Html::a('Update', ['update', 'id' => $model->idPratos], ['class' => 'btn btn-primary']) ?>
-                                </a>
-                                </a>
-                                <p></p>
-                                <a href="index.php?r=prato%2Fview&id=<?php  echo "$model->idPratos"; ?>" >
-                                    <?= Html::a('Alterar Imagem', ['update', 'id' => $model->idPratos], ['class' => 'btn btn-primary']) ?>
                                 </a>
                             </div>
                         </div>

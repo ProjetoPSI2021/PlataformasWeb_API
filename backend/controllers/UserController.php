@@ -97,7 +97,8 @@ class UserController extends Controller
     {
         Yii::$app->user->logout();
 
-        return $this->goHome();
+        return $this->redirect('index.php');
+
     }
 
 
@@ -114,7 +115,7 @@ class UserController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['index']);
         }
 
         return $this->render('update', [
@@ -123,15 +124,16 @@ class UserController extends Controller
     }else
         {
             throw new ForbiddenHttpException;}}
+
     public function actionChooserest()
     {
+        $this->layout = 'blank';
         if(Yii::$app->user->identity->restauranteid == null){
             $model = $this->findModel(Yii::$app->user->identity->id);
 
             if ($model->load(Yii::$app->request->post()) && $model->save()) {
-                return $this->render('index', [
-                    'model' => $model,
-                ]);
+                $this->layout = 'main';
+                return $this->redirect('index.php');
             }
 
             return $this->render('chooserest', [

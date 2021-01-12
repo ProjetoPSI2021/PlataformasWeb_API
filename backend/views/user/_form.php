@@ -20,6 +20,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'restauranteid')->textInput() ?>
 
+    <?= $form->field($model, 'status')->dropDownList([ '10' => 'Acesso', '9' => 'Bloqueado'], ['prompt' => '']) ?>
 
 
     <div class="form-group">

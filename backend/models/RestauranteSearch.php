@@ -17,7 +17,7 @@ class RestauranteSearch extends Restaurante
     public function rules()
     {
         return [
-            [['idRestaurante', 'salas', 'mesas'], 'integer'],
+            [['idRestaurante', 'salas', 'mesas', 'telefone'], 'integer'],
             [['nome', 'morada', 'imagem'], 'safe'],
         ];
     }

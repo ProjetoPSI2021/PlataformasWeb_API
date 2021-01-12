@@ -123,6 +123,8 @@ class PedidoController extends Controller
      */
     public function actionUpdate($id)
     {
+        $this->layout = 'blank';
+
         $model = $this->findModel($id);
         if (Yii::$app->user->can('update-orders')) {
 

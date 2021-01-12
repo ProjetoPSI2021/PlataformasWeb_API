@@ -12,5 +12,6 @@ class TesteCest
     public function openPage(FunctionalTester $I)
     {
         $I->see('Sign in to start your session');
+
     }
 }

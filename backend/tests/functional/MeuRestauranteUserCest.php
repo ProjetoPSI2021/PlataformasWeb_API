@@ -75,7 +75,7 @@ class MeuRestauranteUserCest
         $I->loadSessionSnapshot('loginUsernormal');
         $I->amOnPage('advanced1/backend/web/index.php');
         $I->wait(5);
-        $I->click('Meu Restaurante');
+        $I->click('Restaurante');
         $I->wait(5);
         $I->click('Pedidos');
         $I->wait(5);
@@ -87,7 +87,7 @@ class MeuRestauranteUserCest
         $I->loadSessionSnapshot('loginUsernormal');
         $I->amOnPage('advanced1/backend/web/index.php');
         $I->wait(5);
-        $I->click('Meu Restaurante');
+        $I->click('Restaurante');
         $I->wait(5);
         $I->click('Comida');
         $I->wait(5);
@@ -99,7 +99,7 @@ class MeuRestauranteUserCest
         $I->loadSessionSnapshot('loginUsernormal');
         $I->amOnPage('advanced1/backend/web/index.php');
         $I->wait(5);
-        $I->click('Meu Restaurante');
+        $I->click('Restaurante');
         $I->wait(5);
         $I->click('Reservas');
         $I->wait(5);

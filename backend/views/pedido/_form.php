@@ -8,8 +8,11 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
 
+
 use dosamigos\datepicker\DatePicker;
 use kartik\select2\Select2;
+use dosamigos\multiselect\MultiSelect;
+
 
 
 ?>
@@ -68,6 +71,7 @@ use kartik\select2\Select2;
             ]);
             ?>
             <h3><?= $form->field($model, 'tipo')->dropDownList([ 'Takeaway' => 'Takeaway', 'Reserva' => 'Reserva', ], ['prompt' => '']) ?> </h3>
+            <h3><?= $form->field($model, 'estadopedido')->dropDownList([ 'Pendente' => 'Pendente', 'Em curso' => 'Em curso','Concluido' => 'Concluido','Recusado' => 'Recusado' ], ['prompt' => '']) ?> </h3>
 
             <h3> <?= $form->field($model, 'id_clientes')->widget(Select2::classname(), [
                     'data' => \yii\helpers\ArrayHelper::map(\backend\models\Cliente::find()->all(),'idCliente','username'),
@@ -81,8 +85,6 @@ use kartik\select2\Select2;
 
             <h3><?= $form->field($model, 'preco')->textInput() ?> </h3>
 
-            <h3>     <?= $form->field($model, 'estadopedido')->dropDownList([ 'Pendente' => 'Pendente', 'Em curso' => 'Em curso', 'Concluido' => 'Concluido','Recusado' => 'Recusado', ], ['prompt' => '']) ?>
-            </h3>
 
             <div class="form-group">
                 <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0">
 
     <!-- Site Metas -->
-    <title>Food Funday Restaurant - One page HTML Responsive</title>
+    <title>EatAway</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -46,7 +46,6 @@
 <div id="site-header">
     <header id="header" class="header-block-top">
         <div class="container">
-            <div class="row">
                 <div class="main-menu">
                     <!-- navbar -->
                     <nav class="navbar navbar-default" id="mainNav">
@@ -57,21 +56,16 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <div class="logo">
-                                <a class="navbar-brand js-scroll-trigger logo-header" href="#">
-                                    <img src="images/logo.png" alt="">
-                                </a>
-                            </div>
-                        </div>
+
                         <div id="navbar" class="navbar-collapse collapse">
                             <ul class="nav navbar-nav navbar-right">
                                 <li class="active"><a href="#banner">Home</a></li>
-                                <li><a href="#about">About us</a></li>
+                                <li><a href="#about">Sobre Nós</a></li>
                                 <li><a href="#menu">Menu</a></li>
-                                <li><a href="#our_team">Team</a></li>
-                                <li><a href="#gallery">Gallery</a></li>
-                                <li><a href="#footer">Contact us</a></li>
-                                <li><a href="index.php?r=site%2Fsignup">Sign Up</a></li>
+                                <li><a href="#our_team">Equipa</a></li>
+                                <li><a href="#gallery">Galeria</a></li>
+                                <li><a href="index.php?r=site%2Fsignup">Registar</a></li>
+                                <li><a href="http://localhost/advanced1/backend/web/index.php?r=site%2Flogin">Login</a></li>
                             </ul>
                         </div>
                         <!-- end nav-collapse -->
@@ -93,11 +87,13 @@
             <div class="banner-static">
                 <div class="banner-text">
                     <div class="banner-cell">
-                        <h1>Eataway  <span class="typer" id="some-id" data-delay="200" data-delim=":" data-words="Fast:Safe:Cheap" data-colors="red"></span><span class="cursor" data-cursorDisplay="_" data-owner="some-id"></span></h1>
-                        <h2>Food Delivery </h2>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diem nonummy nibh euismod</p>
+
+                        <h1>Eataway  <span class="typer" id="some-id" data-delay="200" data-delim=":" data-words="Rápido:Seguro:Barato" data-colors="red"></span><span class="cursor" data-cursorDisplay="_" data-owner="some-id"></span></h1>
+                        <h2>Takeaway e Reservas </h2>
+
+                        <p>Gerir o seu negocio de restauração nunca foi tão fácil</p>
                         <div class="book-btn">
-                            <a href="#reservation" class="table-btn hvr-underline-from-center">Book my Table</a>
+                            <a href="index.php?r=site%2Fsignup" class="table-btn hvr-underline-from-center">Registar</a>
                         </div>
                         <a href="#about">
                             <div class="mouse"></div>
@@ -109,24 +105,52 @@
             </div>
             <!-- end banner-static -->
         </div>
+
         <!-- end col -->
     </div>
     <!-- end container -->
 </div>
 <!-- end banner -->
 
+<div id="reservation" class="reservations-main pad-top-100 pad-bottom-100">
+    <div class="container">
+        <div class="row">
+            <div class="form-reservations-box">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                        <h2 class="block-title text-center">
+                            Reservar Mesas e Pedidos
+                        </h2>
+                    </div>
+                    <h4 >Instalar aplicação Android já disponivel na Playstore</h4><center><img  width="100" height="100" src="images/logoplaystore.png">
+                    </center>
+
+                    <div class="col-lg-8  col-xs-12">
+                        <center>
+                    </div>
+
+                    <!-- end form -->
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end reservations-box -->
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container -->
+</div>
 <div id="about" class="about-main pad-top-100 pad-bottom-100">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
-                    <h2 class="block-title"> About Us </h2>
-                    <h3>IT STARTED, QUITE SIMPLY, LIKE THIS...</h3>
-                    <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusm incididunt ut labore et dolore magna aliqua. Ut enim ad minim venia, nostrud exercitation ullamco. </p>
+                    <h2 class="block-title"> Sobre nós </h2>
+                    <h3>COMO COMEÇOU...</h3>
+                    <p> Queriamos ajudar os restaurantes que estavam a passar por dificuldades em tempo de pandemia e porque não criar uma aplicação que faz com que a entrega de comida para o cliente se possa fazer de forma rápida e segura? </p>
 
-                    <p> Aenean commodo ligula eget dolor aenean massa. Cum sociis nat penatibu set magnis dis parturient montes, nascetur ridiculus mus. quam felisorat, ultricies nec, Aenean commodo ligula eget dolor penatibu set magnis is parturient montes, nascetur ridiculus mus. quam felisorat, ultricies nec, pellentesque eu, pretium quis, sem. quat massa quis enim. Donec vitae sapien ut libero venenatis fauci Nullam quis ante. Etiam sit amet rci eget eros. </p>
+                    <p> Ao longo do desenvolvimento do Website e da aplicação android pensamos sempre em como melhorar o serviço para os restaurantes e para o cliente. </p>
 
-                    <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusm incididunt ut labore et dolore magna aliqua. Ut enim ad minim venia, nostrud exercitation ullamco. </p>
+                    <p> Registe-se já para se afiliar a um restaurante já criado ou envie um email para eataway@gmail.com para a criação do seu restaurante. </p>
                 </div>
             </div>
             <!-- end col -->
@@ -150,19 +174,15 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
-                    <h2 class="block-title color-white text-center"> Today's Special </h2>
-                    <h5 class="title-caption text-center"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusm incididunt ut labore et dolore magna aliqua. Ut enim ad minim venia,nostrud exercitation ullamco. </h5>
+                    <h2 class="block-title color-white text-center"> Que tipo de comida existe para os clientes? </h2>
+                    <h5 class="title-caption text-center"> Existe de todo o tipo de comida desde Brasileira, Fast Food, Japonês, Oriental,... </h5>
                 </div>
                 <div class="special-box">
                     <div id="owl-demo">
                         <div class="item item-type-zoom">
                             <a href="#" class="item-hover">
                                 <div class="item-info">
-                                    <div class="headline">
-                                        SALMON STEAK
-                                        <div class="line"></div>
-                                        <div class="dit-line">Lorem ipsum dolor sit amet, consectetur adip aliqua. Ut enim ad minim venia.</div>
-                                    </div>
+
                                 </div>
                             </a>
                             <div class="item-img">
@@ -172,11 +192,7 @@
                         <div class="item item-type-zoom">
                             <a href="#" class="item-hover">
                                 <div class="item-info">
-                                    <div class="headline">
-                                        ITALIAN PIZZA
-                                        <div class="line"></div>
-                                        <div class="dit-line">Lorem ipsum dolor sit amet, consectetur adip aliqua. Ut enim ad minim venia.</div>
-                                    </div>
+
                                 </div>
                             </a>
                             <div class="item-img">
@@ -186,11 +202,6 @@
                         <div class="item item-type-zoom">
                             <a href="#" class="item-hover">
                                 <div class="item-info">
-                                    <div class="headline">
-                                        VEG. ROLL
-                                        <div class="line"></div>
-                                        <div class="dit-line">Lorem ipsum dolor sit amet, consectetur adip aliqua. Ut enim ad minim venia.</div>
-                                    </div>
                                 </div>
                             </a>
                             <div class="item-img">
@@ -200,11 +211,7 @@
                         <div class="item item-type-zoom">
                             <a href="#" class="item-hover">
                                 <div class="item-info">
-                                    <div class="headline">
-                                        SALMON STEAK
-                                        <div class="line"></div>
-                                        <div class="dit-line">Lorem ipsum dolor sit amet, consectetur adip aliqua. Ut enim ad minim venia.</div>
-                                    </div>
+
                                 </div>
                             </a>
                             <div class="item-img">
@@ -214,11 +221,6 @@
                         <div class="item item-type-zoom">
                             <a href="#" class="item-hover">
                                 <div class="item-info">
-                                    <div class="headline">
-                                        VEG. ROLL
-                                        <div class="line"></div>
-                                        <div class="dit-line">Lorem ipsum dolor sit amet, consectetur adip aliqua. Ut enim ad minim venia.</div>
-                                    </div>
                                 </div>
                             </a>
                             <div class="item-img">
@@ -243,27 +245,19 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
                     <h2 class="block-title text-center">
-                        Our Menu
+                        O Nosso Menu
                     </h2>
-                    <p class="title-caption text-center">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p>
+                    <p class="title-caption text-center">Existem vários restaurantes já registados na EatAway, aqui estão alguns dos mais populares: </p>
                 </div>
                 <div class="tab-menu">
                     <div class="slider slider-nav">
                         <div class="tab-title-menu">
-                            <h2>STARTERS</h2>
+                            <h2>RESTAURANTES</h2>
                             <p> <i class="flaticon-canape"></i> </p>
                         </div>
                         <div class="tab-title-menu">
-                            <h2>MAIN DISHES</h2>
+                            <h2>PRATOS POPULARES</h2>
                             <p> <i class="flaticon-dinner"></i> </p>
-                        </div>
-                        <div class="tab-title-menu">
-                            <h2>DESERTS</h2>
-                            <p> <i class="flaticon-desert"></i> </p>
-                        </div>
-                        <div class="tab-title-menu">
-                            <h2>DRINKS</h2>
-                            <p> <i class="flaticon-coffee"></i> </p>
                         </div>
                     </div>
                     <div class="slider slider-single">
@@ -449,60 +443,35 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
                     <h2 class="block-title text-center">
-                        Our Team
+                       A Nossa Equipa
                     </h2>
-                    <p class="title-caption text-center">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p>
+                    <p class="title-caption text-center">A nossa equipa é somente de dois elementos: </p>
                 </div>
                 <div class="team-box">
 
                     <div class="row">
-                        <div class="col-md-4 col-sm-6">
+                        <div class="col-md-6 col-sm-12">
                             <div class="sf-team">
                                 <div class="thumb">
-                                    <a href="#"><img src="images/staff-01.jpg" alt=""></a>
+                                    <a href="#"><img src="http://localhost/advanced1/images/create/user.png" alt=""></a>
                                 </div>
                                 <div class="text-col">
-                                    <h3>John Doggett</h3>
-                                    <p>Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Aenean commodo ligula.</p>
-                                    <ul class="team-social">
-                                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                                    </ul>
+                                    <h3>Pedro Gomes</h3>
+                                    <p> Estudante de TESP PSI - Nº2180648</p>
+
                                 </div>
                             </div>
                         </div>
                         <!-- end col -->
-                        <div class="col-md-4 col-sm-6">
+                        <div class="col-md-6 col-sm-12">
                             <div class="sf-team">
                                 <div class="thumb">
-                                    <a href="#"><img src="images/staff-02.jpg" alt=""></a>
+                                    <a href="#"><img src="http://localhost/advanced1/images/create/user.png" alt=""></a>
                                 </div>
                                 <div class="text-col">
-                                    <h3>Jeffrey Spender</h3>
-                                    <p>Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Aenean commodo ligula.</p>
-                                    <ul class="team-social">
-                                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end col -->
-                        <div class="col-md-4 col-sm-6">
-                            <div class="sf-team">
-                                <div class="thumb">
-                                    <a href="#"><img src="images/staff-03.jpg" alt=""></a>
-                                </div>
-                                <div class="text-col">
-                                    <h3>Monica Reyes</h3>
-                                    <p>Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Aenean commodo ligula.</p>
-                                    <ul class="team-social">
-                                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                                    </ul>
+                                    <h3>Ricardo Ferreira</h3>
+                                    <p>Estudante de TESP PSI - Nº2180663</p>
+
                                 </div>
                             </div>
                         </div>
@@ -528,9 +497,9 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
                     <h2 class="block-title text-center">
-                        Our Gallery
+                        A Nossa Galeria
                     </h2>
-                    <p class="title-caption text-center">There are many variations of passages of Lorem Ipsum available </p>
+                    <p class="title-caption text-center">Aqui estão várias variações de comidas disponiveis que pertencem aos restaurantes registado na EatAway. </p>
                 </div>
                 <div class="gal-container clearfix">
                     <div class="col-md-8 col-sm-12 co-xs-12 gal-item">
@@ -544,9 +513,6 @@
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                                         <div class="modal-body">
                                             <img src="images/gallery_01.jpg" alt="" />
-                                        </div>
-                                        <div class="col-md-12 description">
-                                            <h4>This is the 1 one on my Gallery</h4>
                                         </div>
                                     </div>
                                 </div>
@@ -566,7 +532,6 @@
                                             <img src="images/gallery_02.jpg" alt="" />
                                         </div>
                                         <div class="col-md-12 description">
-                                            <h4>This is the 2 one on my Gallery</h4>
                                         </div>
                                     </div>
                                 </div>
@@ -586,7 +551,6 @@
                                             <img src="images/gallery_03.jpg" alt="" />
                                         </div>
                                         <div class="col-md-12 description">
-                                            <h4>This is the 3 one on my Gallery</h4>
                                         </div>
                                     </div>
                                 </div>
@@ -606,7 +570,6 @@
                                             <img src="images/gallery_04.jpg" alt="" />
                                         </div>
                                         <div class="col-md-12 description">
-                                            <h4>This is the 4 one on my Gallery</h4>
                                         </div>
                                     </div>
                                 </div>
@@ -626,7 +589,6 @@
                                             <img src="images/gallery_05.jpg" alt="" />
                                         </div>
                                         <div class="col-md-12 description">
-                                            <h4>This is the 5 one on my Gallery</h4>
                                         </div>
                                     </div>
                                 </div>
@@ -646,7 +608,6 @@
                                             <img src="images/gallery_06.jpg" alt="" />
                                         </div>
                                         <div class="col-md-12 description">
-                                            <h4>This is the 6 one on my Gallery</h4>
                                         </div>
                                     </div>
                                 </div>
@@ -666,7 +627,6 @@
                                             <img src="images/gallery_07.jpg" alt="" />
                                         </div>
                                         <div class="col-md-12 description">
-                                            <h4>This is the 7 one on my Gallery</h4>
                                         </div>
                                     </div>
                                 </div>
@@ -686,7 +646,6 @@
                                             <img src="images/gallery_08.jpg" alt="" />
                                         </div>
                                         <div class="col-md-12 description">
-                                            <h4>This is the 8 one on my Gallery</h4>
                                         </div>
                                     </div>
                                 </div>
@@ -706,7 +665,6 @@
                                             <img src="images/gallery_09.jpg" alt="" />
                                         </div>
                                         <div class="col-md-12 description">
-                                            <h4>This is the 9 one on my Gallery</h4>
                                         </div>
                                     </div>
                                 </div>
@@ -726,7 +684,6 @@
                                             <img src="images/gallery_10.jpg" alt="" />
                                         </div>
                                         <div class="col-md-12 description">
-                                            <h4>This is the 10 one on my Gallery</h4>
                                         </div>
                                     </div>
                                 </div>
@@ -744,311 +701,13 @@
 </div>
 <!-- end gallery-main -->
 
-<div id="blog" class="blog-main pad-top-100 pad-bottom-100 parallax">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <h2 class="block-title text-center">
-                    Our Blog
-                </h2>
-                <div class="blog-box clearfix">
-                    <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
-                        <div class="col-md-6 col-sm-6">
-                            <div class="blog-block">
-                                <div class="blog-img-box">
-                                    <img src="images/featured-image-01.jpg" alt="" />
-                                    <div class="overlay">
-                                        <a href=""><i class="fa fa-link" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                                <div class="blog-dit">
-                                    <p><span>25 NOVEMBER, 2014</span></p>
-                                    <h2>LATEST RECIPES JUST IN!</h2>
-                                    <h5>BY John Doggett</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end col -->
-                    </div>
-                    <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
-                        <div class="col-md-6 col-sm-6">
-                            <div class="blog-block">
-                                <div class="blog-img-box">
-                                    <img src="images/featured-image-02.jpg" alt="" />
-                                    <div class="overlay">
-                                        <a href=""><i class="fa fa-link" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                                <div class="blog-dit">
-                                    <p><span>2 NOVEMBER, 2014</span></p>
-                                    <h2>NEW RECRUITS HAVE ARRIVED!</h2>
-                                    <h5>BY Jeffrey Spender</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end col -->
-                    </div>
-                    <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
-                        <div class="col-md-6 col-sm-6">
-                            <div class="blog-block">
-                                <div class="blog-img-box">
-                                    <img src="images/featured-image-03.jpg" alt="" />
-                                    <div class="overlay">
-                                        <a href=""><i class="fa fa-link" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                                <div class="blog-dit">
-                                    <p><span>4 NOVEMBER, 2014</span></p>
-                                    <h2>BAKING TIPS FROM THE PROS</h2>
-                                    <h5>BY Monica Reyes</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end col -->
-                    </div>
-                    <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
-                        <div class="col-md-6 col-sm-6">
-                            <div class="blog-block">
-                                <div class="blog-img-box">
-                                    <img src="images/featured-image-04.jpg" alt="" />
-                                    <div class="overlay">
-                                        <a href=""><i class="fa fa-link" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                                <div class="blog-dit">
-                                    <p><span>12 NOVEMBER, 2014</span></p>
-                                    <h2>ALL YOUR EGGS BELONG TO US</h2>
-                                    <h5>BY John Doggett</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end col -->
-                    </div>
-                </div>
-                <!-- end blog-box -->
-
-                <div class="blog-btn-v">
-                    <a class="hvr-underline-from-center" href="#">View the Blog</a>
-                </div>
-
-            </div>
-            <!-- end col -->
-        </div>
-        <!-- end row -->
-    </div>
-    <!-- end container -->
-</div>
-<!-- end blog-main -->
-
-<div id="pricing" class="pricing-main pad-top-100 pad-bottom-100">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <h2 class="block-title text-center">
-                    Pricing
-                </h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut orci varius, elementum lectus nec, aliquam lectus. Duis neque augue, maximus in sapien ut, porta pharetra odio.</p>
-            </div>
-            <div class="panel-pricing-in">
-                <!-- item -->
-                <div class="col-md-4 col-sm-4 text-center">
-                    <div class="panel panel-pricing">
-                        <div class="panel-heading">
-                            <div class="pric-icon">
-                                <img src="images/store.png" alt="" />
-                            </div>
-                            <h3>Basic</h3>
-                        </div>
-                        <div class="panel-body text-center">
-                            <p><strong>$30/<span>Month</span></strong></p>
-                        </div>
-                        <ul class="list-group text-center">
-                            <li class="list-group-item"><i class="fa fa-check"></i> One Website</li>
-                            <li class="list-group-item"><i class="fa fa-check"></i> One User</li>
-                            <li class="list-group-item"><i class="fa fa-check"></i> 10 GB Bandwidth</li>
-                            <li class="list-group-item"><i class="fa fa-times"></i> 2GB Storage</li>
-                            <li class="list-group-item"><i class="fa fa-times"></i> Offline work</li>
-                            <li class="list-group-item"><i class="fa fa-check"></i> 24x7 Support</li>
-                        </ul>
-                        <div class="panel-footer">
-                            <a class="btn btn-lg btn-block hvr-underline-from-center" href="#">Purchase Now!</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- /item -->
-
-                <!-- item -->
-                <div class="col-md-4 col-sm-4 text-center">
-                    <div class="panel panel-pricing">
-                        <div class="panel-heading">
-                            <div class="pric-icon">
-                                <img src="images/food.png" alt="" />
-                            </div>
-                            <h3>Pro</h3>
-                        </div>
-                        <div class="panel-body text-center">
-                            <p><strong>$60/<span>Month</span></strong></p>
-                        </div>
-                        <ul class="list-group text-center">
-                            <li class="list-group-item"><i class="fa fa-check"></i> One Website</li>
-                            <li class="list-group-item"><i class="fa fa-check"></i> One User</li>
-                            <li class="list-group-item"><i class="fa fa-check"></i> 50 GB Bandwidth</li>
-                            <li class="list-group-item"><i class="fa fa-check"></i> 2GB Storage</li>
-                            <li class="list-group-item"><i class="fa fa-check"></i> Offline work</li>
-                            <li class="list-group-item"><i class="fa fa-check"></i> 24x7 Support</li>
-                        </ul>
-                        <div class="panel-footer">
-                            <a class="btn btn-lg btn-block hvr-underline-from-center" href="#">Purchase Now!</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- /item -->
-
-                <!-- item -->
-                <div class="col-md-4 col-sm-4 text-center">
-                    <div class="panel panel-pricing">
-                        <div class="panel-heading">
-                            <div class="pric-icon">
-                                <img src="images/coffee.png" alt="" />
-                            </div>
-                            <h3>Platinum</h3>
-                        </div>
-                        <div class="panel-body text-center">
-                            <p><strong>$90/<span>Month</span></strong></p>
-                        </div>
-                        <ul class="list-group text-center">
-                            <li class="list-group-item"><i class="fa fa-check"></i> One Website</li>
-                            <li class="list-group-item"><i class="fa fa-check"></i> One User</li>
-                            <li class="list-group-item"><i class="fa fa-check"></i> 100 GB Bandwidth</li>
-                            <li class="list-group-item"><i class="fa fa-check"></i> 2GB Storage</li>
-                            <li class="list-group-item"><i class="fa fa-check"></i> Offline work</li>
-                            <li class="list-group-item"><i class="fa fa-check"></i> 24x7 Support</li>
-                        </ul>
-                        <div class="panel-footer">
-                            <a class="btn btn-lg btn-block hvr-underline-from-center" href="#">Purchase Now!</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- /item -->
-            </div>
-        </div>
-        <!-- end row -->
-    </div>
-    <!-- end container -->
-</div>
-<!-- end pricing-main -->
-
-<div id="reservation" class="reservations-main pad-top-100 pad-bottom-100">
-    <div class="container">
-        <div class="row">
-            <div class="form-reservations-box">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
-                        <h2 class="block-title text-center">
-                            Reservations
-                        </h2>
-                    </div>
-                    <h4 class="form-title">BOOKING FORM</h4>
-                    <p>PLEASE FILL OUT ALL REQUIRED* FIELDS. THANKS!</p>
-
-                    <form id="contact-form" method="post" class="reservations-box" name="contactform" action="mail.php">
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <div class="form-box">
-                                <input type="text" name="form_name" id="form_name" placeholder="Name" required="required" data-error="Firstname is required.">
-                            </div>
-                        </div>
-                        <!-- end col -->
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <div class="form-box">
-                                <input type="email" name="email" id="email" placeholder="E-Mail ID" required="required" data-error="E-mail id is required.">
-                            </div>
-                        </div>
-                        <!-- end col -->
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <div class="form-box">
-                                <input type="text" name="phone" id="phone" placeholder="contact no.">
-                            </div>
-                        </div>
-                        <!-- end col -->
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <div class="form-box">
-                                <select name="no_of_persons" id="no_of_persons" class="selectpicker">
-                                    <option selected disabled>No. Of persons</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                </select>
-                            </div>
-                        </div>
-                        <!-- end col -->
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <div class="form-box">
-                                <input type="text" name="date-picker" id="date-picker" placeholder="Date" required="required" data-error="Date is required." />
-                            </div>
-                        </div>
-                        <!-- end col -->
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <div class="form-box">
-                                <input type="text" name="time-picker" id="time-picker" placeholder="Time" required="required" data-error="Time is required." />
-                            </div>
-                        </div>
-                        <!-- end col -->
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <div class="form-box">
-                                <select name="preferred_food" id="preferred_food" class="selectpicker">
-                                    <option selected disabled>preferred food</option>
-                                    <option>Indian</option>
-                                    <option>Continental</option>
-                                    <option>Mexican</option>
-                                </select>
-                            </div>
-                        </div>
-                        <!-- end col -->
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <div class="form-box">
-                                <select name="occasion" id="occasion" class="selectpicker">
-                                    <option selected disabled>Occasion</option>
-                                    <option>Wedding</option>
-                                    <option>Birthday</option>
-                                    <option>Anniversary</option>
-                                </select>
-                            </div>
-                        </div>
-                        <!-- end col -->
-
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="reserve-book-btn text-center">
-                                <button class="hvr-underline-from-center" type="submit" value="SEND" id="submit">BOOK MY TABLE </button>
-                            </div>
-                        </div>
-                        <!-- end col -->
-                    </form>
-                    <!-- end form -->
-                </div>
-                <!-- end col -->
-            </div>
-            <!-- end reservations-box -->
-        </div>
-        <!-- end row -->
-    </div>
-    <!-- end container -->
-</div>
 <!-- end reservations-main -->
 
 <div id="footer" class="footer-main">
     <div class="footer-news pad-top-100 pad-bottom-70 parallax">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
-                        <h2 class="ft-title color-white text-center"> Newsletter </h2>
-                        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-                    </div>
-                    <form>
-                        <input type="email" placeholder="Enter your e-mail id">
-                        <a href="#" class="orange-btn"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></a>
-                    </form>
-                </div>
+
                 <!-- end col -->
             </div>
             <!-- end row -->
@@ -1062,13 +721,13 @@
                 <div class="footer-in-main">
                     <div class="footer-logo">
                         <div class="text-center">
-                            <img src="images/logo.png" alt="" />
+                            <img src="" alt="" />
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                         <div class="footer-box-a">
-                            <h3>About Us</h3>
-                            <p>Aenean commodo ligula eget dolor aenean massa. Cum sociis nat penatibu set magnis dis parturient montes.</p>
+                            <h3>Sobre Nós</h3>
+                            <p>Pode nos encontrar nas nossas redes sociais.</p>
                             <ul class="socials-box footer-socials pull-left">
                                 <li>
                                     <a href="#">
@@ -1103,12 +762,9 @@
                     <!-- end col -->
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                         <div class="footer-box-b">
-                            <h3>New Menu</h3>
+                            <h3>Registar Restaurante</h3>
                             <ul>
-                                <li><a href="#">Italian Bomba Sandwich</a></li>
-                                <li><a href="#">Double Dose of Pork Belly</a></li>
-                                <li><a href="#">Spicy Thai Noodles</a></li>
-                                <li><a href="#">Triple Truffle Trotters</a></li>
+                                <li><a href="#">Para registar um restaurante envie um email para eataway@gmail.com</a></li>
                             </ul>
                         </div>
                         <!-- end footer-box-b -->
@@ -1116,20 +772,20 @@
                     <!-- end col -->
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                         <div class="footer-box-c">
-                            <h3>Contact Us</h3>
+                            <h3>Contacte-nos</h3>
                             <p>
                                 <i class="fa fa-map-signs" aria-hidden="true"></i>
-                                <span>6 E Esplanade, St Albans VIC 3021, Australia</span>
+                                <span>Morro do Lena, Alto do Vieiro, Apt 4163, Edifício D, 2411-901 Leiria</span>
                             </p>
                             <p>
                                 <i class="fa fa-mobile" aria-hidden="true"></i>
                                 <span>
-									+91 80005 89080
+									+351 24493829321
 								</span>
                             </p>
                             <p>
                                 <i class="fa fa-envelope" aria-hidden="true"></i>
-                                <span><a href="#">support@foodfunday.com</a></span>
+                                <span><a href="#">eataway@gmail.com</a></span>
                             </p>
                         </div>
                         <!-- end footer-box-c -->
@@ -1137,15 +793,15 @@
                     <!-- end col -->
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                         <div class="footer-box-d">
-                            <h3>Opening Hours</h3>
+                            <h3>Horas de atendimentos</h3>
 
                             <ul>
                                 <li>
-                                    <p>Monday - Thursday </p>
+                                    <p>Segunda - Quinta </p>
                                     <span> 11:00 AM - 9:00 PM</span>
                                 </li>
                                 <li>
-                                    <p>Friday - Saturday </p>
+                                    <p>Sexta - Sabado </p>
                                     <span>  11:00 AM - 5:00 PM</span>
                                 </li>
                             </ul>
@@ -1163,7 +819,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <h6 class="copy-title"> Copyright &copy; 2017 Food Funday is powered by <a href="#" target="_blank"></a> </h6>
+                        <h6 class="copy-title"> Copyright &copy; 2020 EatAway is powered by <a href="#" target="_blank"></a> </h6>
                     </div>
                 </div>
                 <!-- end row -->

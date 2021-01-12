@@ -79,6 +79,7 @@ class RestauranteController extends Controller
 
     public function actionViewrestaurante($id)
     {
+        $id == Yii::$app->user->identity->restauranteid;
         if ($id == Yii::$app->user->identity->restauranteid) {
         return $this->render('view_restaurante', [
             'model' => $this->findModel($id),
@@ -137,16 +138,26 @@ class RestauranteController extends Controller
      */
     public function actionUpdate($id)
     {
+        $this->layout = 'blank';
+
         if (Yii::$app->user->can('update-restaurants')) {
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->idRestaurante]);
+
+        }return $this->render('update', [
+                'model' => $model,
+            ]);
+        }elseif(Yii::$app->user->identity->restauranteid == $id){
+            $model = $this->findModel($id);
+            if ($model->load(Yii::$app->request->post()) && $model->save()) {
+                return $this->redirect(['viewrestaurante', 'id' => $model->idRestaurante]);
         }
 
-        return $this->render('update', [
-            'model' => $model,
-        ]);
+            return $this->render('update', [
+                'model' => $model,
+            ]);
     }else
         {
             throw new ForbiddenHttpException;

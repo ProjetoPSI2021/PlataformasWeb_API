@@ -64,9 +64,6 @@ RestaurantesAsset::register($this);
                         </div>
                         <div class="card-footer">
                             <div class="text-right">
-                                <a href="#" class="btn btn-sm bg-teal">
-                                    <i class="fas fa-comments"></i>
-                                </a>
                                 <a href="index.php?r=restaurante%2Fview&id=<?php  echo "$restaurante->idRestaurante"; ?>" class="btn btn-sm btn-primary">
                                     <i class="fas fa-search"></i> Ver Restaurante
                                 </a>

@@ -50,7 +50,9 @@ class SignupForm extends Model
     public function signup()
     {
         if ($this->validate()) {
-
+            $permissionList = $_POST['SignupForm']['permissions'];
+            if($permissionList == null){
+            }else{
             $user = new User();
             $user->username = $this->username;
             $user->email = $this->email;
@@ -59,7 +61,7 @@ class SignupForm extends Model
             $user->generateEmailVerificationToken();
             $user->save();
             //Permissions
-            $permissionList = $_POST['SignupForm']['permissions'];
+                $permissionList = $_POST['SignupForm']['permissions'];
             foreach($permissionList as $value){
                 $newPermission = new AuthAssignment;
                 $newPermission->user_id = $user->id;
@@ -67,7 +69,7 @@ class SignupForm extends Model
                 $newPermission->save();
             }
             return $user;
-        }
+        }}
         return null;
     }
 

@@ -35,6 +35,7 @@ class Cliente extends \yii\db\ActiveRecord
         return [
             [['username', 'email', 'password'], 'required'],
             [['username', 'email', 'password'], 'string', 'max' => 50],
+            ['email', 'email'],
         ];
     }
 

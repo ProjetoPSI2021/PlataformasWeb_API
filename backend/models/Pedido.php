@@ -37,7 +37,7 @@ class Pedido extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['tipo', 'id_clientes', 'preco','idrestaurantepedido'], 'required'],
+            [['tipo', 'id_clientes', 'preco','idrestaurantepedido','estadopedido'], 'required'],
             [['id_reserva','idpratoorder', 'id_clientes','idrestaurantepedido'], 'integer'],
             [['data'], 'safe'],
             [['tipo'], 'string'],

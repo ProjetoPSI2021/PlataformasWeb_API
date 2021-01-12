@@ -17,7 +17,7 @@ use kartik\select2\Select2;
     <?= $form->field($model, 'nome')->textInput(['maxlength' => true]) ?>
 
 
-    <?= $form->field($model, 'tipo')->dropDownList([ 'Fast Food' => 'Fast Food', 'Japones' => 'Japones', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'tipo')->dropDownList([ 'Fast Food' => 'Fast Food', 'Japones' => 'Japones','Árabe' => 'Árabe','Oriental' => 'Oriental','Brasileira' => 'Brasileira','Mediterranea' => 'Mediterranea','Comum' => 'Comum', ], ['prompt' => '']) ?>
 
     <?= $form->field($model, 'r_id')->widget(Select2::classname(), [
         'data' => \yii\helpers\ArrayHelper::map(\backend\models\Restaurante::find()->all(),'idRestaurante','nome'),

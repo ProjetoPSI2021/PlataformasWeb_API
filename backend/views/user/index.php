@@ -37,8 +37,10 @@ $this->params['breadcrumbs'][] = $this->title;
                         <tr>
                             <th>ID</th>
                             <th>User</th>
-                            <th>Date</th>
+                            <th>Email</th>
+                            <th>ID Restaurante</th>
                             <th>Status</th>
+                            <th>Update</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -49,10 +51,16 @@ foreach($allusers as $user) {
                             <td> <?php  echo "$user->id"; ?></td>
                             <td><?php  echo "$user->username"; ?></td>
                             <td><?php  echo "$user->email"; ?></td>
+                                <td><?php  echo "$user->restauranteid"; ?></td>
                             <td><?php if($user->status=="10"){?><i class="far fa-check-circle"></i><span class="tag tag-success"> Autorizado</span></td>
-<?php }else{?><i class="fas fa-times"></i><span class="tag tag-success"> Não Autorizado</span></td>
+<?php }else{?><i class="fas fa-times"></i><span class="tag tag-success"> Não Autorizado</span></td> <?php }?>
+                            <td><a class="btn btn-info btn-sm" href="index.php?r=user%2Fupdate&id=<?php  echo "$user->id"; ?>">
+                                    <i class="fas fa-pencil-alt">
+                                    </i>
+                                    Edit
+                                </a></td>
                         </tr>
-<?php }} ?>
+<?php } ?>
                         </tbody>
                     </table>
                 </div>

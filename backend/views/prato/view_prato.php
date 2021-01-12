@@ -42,10 +42,9 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <h2 class="lead"><b>   <?php  echo "$prato->nome"; ?> </b></h2>
                                     <p class="text-muted text-sm"><b>   <?php  echo "$prato->nome"; ?>  </b>    <?php  echo "$prato->nome"; ?>  </p>
                                     <ul class="ml-4 mb-0 fa-ul text-muted">
-                                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span>Morada:<?php echo"$prato->tipo"; ?> </li>
-                                        <li class="small"><span class="fa-li"><i class="fas fa-person-booth"></i></span>Salas:<?php  echo "$prato->tipo"; ?> / Mesas:<?php  echo "$prato->tipo"; ?>  </li>
-                                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span>    <?php  echo "$prato->tipo"; ?> </li>
-
+                                        <li class="small"><span class="fa-li"><i class="fas fa-border-style"></i></span>Tipo:<?php echo"$prato->tipo"; ?> </li>
+                                        <li class="small"><span class="fa-li"><i class="fas fa-tag"></i></span>Preço:<?php  echo "$prato->r_preco"; ?>   </li>
+                                        <li class="small"><span class="fa-li"><i class="fas fa-mortar-pestle"></i></span> Ingredientes: <?php  echo "$prato->r_ingredientes"; ?> </li>
                                     </ul>
                                 </div>
                                 <div class="col-5 text-center">
@@ -54,9 +53,6 @@ $this->params['breadcrumbs'][] = $this->title;
                         </div>
                         <div class="card-footer">
                             <div class="text-right">
-                                <a href="#" class="btn btn-sm bg-teal">
-                                    <i class="fas fa-comments"></i>
-                                </a>
                                 <a href="index.php?r=prato%2Fview&id=<?php  echo "$prato->idPratos"; ?>" class="btn btn-sm btn-primary">
                                     <i class="fas fa-search"></i> Ver Prato
                                 </a>

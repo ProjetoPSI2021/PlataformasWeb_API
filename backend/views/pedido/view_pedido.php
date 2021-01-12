@@ -20,10 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
 
-        <a href="index.php?r=prato" class="btn btn-sm btn-primary">
-            <i class="fas fa-backward"></i> Voltar
-        </a>
-        <a href="index.php?r=prato" class="btn btn-sm btn-primary">
+        <a href="index.php?r=pedido%2Fviewpedidopendente" class="btn btn-sm btn-primary">
             <i class="fas fa-is"></i> Ver pedidos pendentes
         </a>
 
@@ -57,11 +54,26 @@ $this->params['breadcrumbs'][] = $this->title;
                             <p></p>
                             <li><span class="fa-li"><i class="fas fa-tag"></i></span>Preço Total:<?php  echo "$pedido->preco"; ?>  </li>
                             <p></p>
-                            <li><span class="fa-li"><i class="fas fa-chalkboard"></i></span>Estado:    <?php  echo "$pedido->estadopedido"; ?> </li>
-                            <p></p>
+                            <li><span class="fa-li"><i class="fas fa-chalkboard"></i></span>Estado:    <?php  echo "$pedido->estadopedido"; ?>
+                            <?php if($pedido->estadopedido == "Pendente"){
+                                ?>
+                            <img src="http:\\localhost\advanced1\images\icons\pendente.png"  width="40" height="40" class="brand-image img-circle elevation-3" style="opacity: .8">
+                    </li>
+                    <?php
+                            }elseif($pedido->estadopedido == "Em curso"){?>
+                <img src="http:\\localhost\advanced1\images\icons\emcurso.png"  width="40" height="40" class="brand-image" style="opacity: .8">
+                </li>
+                    <?php
+                            }elseif($pedido->estadopedido == "Concluido"){?>
+                            <img src="http:\\localhost\advanced1\images\icons\concluido.png"  width="40" height="40" class="brand-image" style="opacity: .8">
+                            </li>
+                            <?php
+                            }else{?> <img src="http:\\localhost\advanced1\images\icons\recusado.png"  width="40" height="40" class="brand-image img-circle elevation-3" style="opacity: .8">
+<?php }?>
+                <p></p>
                             <li><span class="fa-li"><i class="fas fa-list-ol"></i></span>ID Prato:    <?php  echo "$pedido->idpratoorder"; ?> </li>
                             <p></p>
-                            <li><span class="fa-li"><i class="fas fa-pizza-slice"></i></span>Nome Prato:    <?php  $allPratosPedidos = \backend\models\Prato::find()->where(['idPratos' => $pedido])->all();
+                            <li><span class="fa-li"><i class="fas fa-pizza-slice"></i></span>Nome Prato:    <?php  $allPratosPedidos = \backend\models\Prato::find()->where(['idPratos' => $pedido->idpratoorder])->all();
     foreach($allPratosPedidos as $prato) {
                                 echo $prato->nome;} ?> </li>
                         </ul>
@@ -85,10 +97,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <?= Html::a('Update', ['update', 'id' => $pedido->idpedido], ['class' => 'btn btn-primary']) ?>
                     </a>
                     </a>
-                    <p></p>
-                    <a href="index.php?r=prato%2Fview&id=<?php  echo "$pedido->idpedido"; ?>" >
-                        <?= Html::a('Alterar Imagem', ['update', 'id' => $pedido->idpedido], ['class' => 'btn btn-primary']) ?>
-                    </a>
+
                 </div>
             </div>
         </div>

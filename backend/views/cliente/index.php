@@ -26,7 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <h1>        <img  src="http:\\localhost\advanced1\images\create\user.png" alt="AdminLTE Logo" class=""  width="150" height="150" style="opacity: .8">
                         <?= Html::encode($this->title) ?> </h1><p></p>
                     <div align="right">
-                        <?= Html::a('Create Cliente', ['create'], ['class' => 'btn btn-success']) ?>
+                        <?= Html::a('Criar Cliente', ['create'], ['class' => 'btn btn-success']) ?>
                     </div>
                 </div>
                 <!-- /.card-header -->

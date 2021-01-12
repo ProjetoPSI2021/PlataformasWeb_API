@@ -20,7 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
 
-        <a href="index.php?r=prato" class="btn btn-sm btn-primary">
+        <a href="index.php?r=pedido%2Fviewpedido" class="btn btn-sm btn-primary">
             <i class="fas fa-backward"></i> Voltar
         </a>
 
@@ -58,7 +58,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             <p></p>
                             <li><span class="fa-li"><i class="fas fa-list-ol"></i></span>ID Prato:    <?php  echo "$pedido->idpratoorder"; ?> </li>
                             <p></p>
-                            <li><span class="fa-li"><i class="fas fa-pizza-slice"></i></span>Nome Prato:    <?php  $allPratosPedidos = \backend\models\Prato::find()->where(['idPratos' => $pedido])->all();
+                            <li><span class="fa-li"><i class="fas fa-pizza-slice"></i></span>Nome Prato:    <?php  $allPratosPedidos = \backend\models\Prato::find()->where(['idPratos' => $pedido->idpratoorder])->all();
     foreach($allPratosPedidos as $prato) {
                                 echo $prato->nome;} ?> </li>
                         </ul>
@@ -83,9 +83,6 @@ $this->params['breadcrumbs'][] = $this->title;
                     </a>
                     </a>
                     <p></p>
-                    <a href="index.php?r=prato%2Fview&id=<?php  echo "$pedido->idpedido"; ?>" >
-                        <?= Html::a('Alterar Imagem', ['update', 'id' => $pedido->idpedido], ['class' => 'btn btn-primary']) ?>
-                    </a>
                 </div>
             </div>
         </div>

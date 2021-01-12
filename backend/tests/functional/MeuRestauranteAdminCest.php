@@ -56,11 +56,13 @@ class MeuRestauranteAdminCest
         $I->loadSessionSnapshot('loginUseradmin');
         $I->amOnPage('advanced1/backend/web/index.php');
         $I->wait(5);
-        $I->click('Meu Restaurante');
+        $I->click('Restaurante');
         $I->wait(5);
         $I->click('Pedidos');
         $I->wait(5);
         $I->see('Criar Pedido');
+        $I->click('Criar Pedido');
+        $I->see('ID Prato Pedido');
     }
 
     public function comidaUseradmin(FunctionalTester $I)
@@ -68,10 +70,12 @@ class MeuRestauranteAdminCest
         $I->loadSessionSnapshot('loginUseradmin');
         $I->amOnPage('advanced1/backend/web/index.php');
         $I->wait(5);
-        $I->click('Meu Restaurante');
+        $I->click('Restaurante');
         $I->wait(5);
-        $I->click('Comida');
+        $I->click('Ementa');
         $I->wait(5);
+        $I->see('Criar Prato');
+        $I->click('Criar Prato');
         $I->see('Criar Prato');
     }
 
@@ -80,11 +84,17 @@ class MeuRestauranteAdminCest
         $I->loadSessionSnapshot('loginUseradmin');
         $I->amOnPage('advanced1/backend/web/index.php');
         $I->wait(5);
-        $I->click('Meu Restaurante');
+        $I->click('Restaurante');
         $I->wait(5);
         $I->click('Reservas');
         $I->wait(5);
         $I->see('Criar Reserva');
+        $I->click('Criar Reserva');
+        $I->see('ID Cliente');
     }
+
+
+
+
 
 }

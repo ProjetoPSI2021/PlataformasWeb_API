@@ -14,9 +14,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="card-body pb-0">   <h1>        <img  src="http:\\localhost\advanced1\images\create\pedido.png" alt="AdminLTE Logo" class=""  width="100" height="100" style="opacity: .8">
             <?= Html::encode($this->title) ?> </h1><p></p>
         <p></p>
-        <a href="index.php?r=prato" class="btn btn-sm btn-primary">
-            <i class="fas fa-backward"></i> Voltar
-        </a>
+
+
         <p></p>
 
         <p align="right">
@@ -47,7 +46,7 @@ foreach($allPedidos as $pedido) {
                             <p></p>
                             <li><span class="fa-li"><i class="fas fa-list-ol"></i></span>ID Prato:    <?php  echo "$pedido->idpratoorder"; ?> </li>
                             <p></p>
-                            <li><span class="fa-li"><i class="fas fa-pizza-slice"></i></span>Nome Prato:    <?php  $allPratosPedidos = \backend\models\Prato::find()->where(['idPratos' => $pedido])->all();
+                            <li><span class="fa-li"><i class="fas fa-pizza-slice"></i></span>Nome Prato:    <?php  $allPratosPedidos = \backend\models\Prato::find()->where(['idPratos' => $pedido->idpratoorder])->all();
                                 foreach($allPratosPedidos as $prato) {
                                     echo $prato->nome;} ?> </li>
                         </ul>
